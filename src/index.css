@@ -1,0 +1,10 @@
+@font-face {
+    font-family: head;
+    src: url(./assets/Fonts/Pacifico-Regular.ttf);
+}
+
+
+@font-face {
+    font-family: regular;
+    src: url(./assets/Fonts/Mulish-VariableFont_wght.ttf);
+}
