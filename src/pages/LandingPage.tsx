@@ -58,7 +58,7 @@ const LandingPage = () => {
               <div className="feature-card">
                 <BsShieldFillCheck id="card-icon"/>
                 <h2>Security</h2>
-                <p>Secure and encrypted transactions with no hidden fees</p>
+                <p>Secure and encrypted transactions with no hidden fees.</p>
               </div>
 
               <div className="feature-card">
@@ -75,8 +75,8 @@ const LandingPage = () => {
 
               <div className="feature-card">
                 <FaMoneyBillWave id="card-icon"/>
-                <h2>1B+ Approved</h2>
-                <p>Secure and encrypted transactions with no hidden fees</p>
+                <h2>24/7</h2>
+                <p>We are always available to meet your loan needs.</p>
               </div>
 
               <div className="feature-card">

@@ -29,7 +29,7 @@ const Signup = () => {
 
           <input id="form-input" type="text" placeholder="Surname" />
 
-          <input id="form-input" type="text" placeholder="Phone Number (08012345678)" />
+          <input id="form-input" type="text" placeholder="Phone Number (eg: 08012345678)" />
 
           <input id="form-input" type="text" placeholder="Email" />
 

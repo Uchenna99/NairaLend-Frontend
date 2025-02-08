@@ -47,7 +47,7 @@ const Navbar = () => {
             <div className="tab-navbar-slide">
               <div className="tab-navbar-slide-option">
                 <Link id="nav-option" to={'/signup'}>
-                  Sign In
+                  Sign Up
                 </Link>
               </div>
 
@@ -58,7 +58,7 @@ const Navbar = () => {
               </div>
 
               <div className="tab-navbar-slide-option">
-                <Link id="nav-option" to={'/login'}>
+                <Link id="nav-option" to={''}>
                   Loan Calculator
                 </Link>
               </div>
