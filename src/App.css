@@ -288,7 +288,60 @@ img#hero-lady{
   width: 100%;
   height: fit-content;
   padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
+
+.why-us-section > h2{
+  font-size: 35px;
+}
+
+.why-us-section > p{
+  font-size: 18px;
+  line-height: 1.5;
+  width: 1200px;
+}
+
+
+.features-wrap{
+  width: 1200px;
+  height: 300px;
+  /* background-color: bisque; */
+}
+
+.feature-card-holder{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 20px 10px;
+}
+
+.feature-card{
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.feature-card > h2{
+  font-size: 20px;
+}
+
+#card-icon{
+  font-size: 70px;
+  color: #1E3A8A;
+}
+
+
+
 
 
 
@@ -312,7 +365,10 @@ img#hero-lady{
   .hero-container{
     width: 100%;
   }
-  
+
+  .why-us-section > p{
+    width: 100%;
+  }
 }
 
 
