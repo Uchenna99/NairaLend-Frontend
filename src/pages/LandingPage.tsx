@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import lady from "../assets/Images/hero_image.png"
 import { BsShieldFillCheck } from "react-icons/bs";
 import { FaPeopleGroup } from "react-icons/fa6";
+import { FaMoneyBillWave } from "react-icons/fa";
 
 
 
@@ -57,6 +58,37 @@ const LandingPage = () => {
               <div className="feature-card">
                 <BsShieldFillCheck id="card-icon"/>
                 <h2>Security</h2>
+                <p>Secure and encrypted transactions with no hidden fees</p>
+              </div>
+
+              <div className="feature-card">
+                <FaPeopleGroup id="card-icon"/>
+                <h2>50k+ Clients</h2>
+                <p>Join a growing community of satisfied customers.</p>
+              </div>
+
+              <div className="feature-card">
+                <FaMoneyBillWave id="card-icon"/>
+                <h2>1B+ Approved</h2>
+                <p>Secure and encrypted transactions with no hidden fees</p>
+              </div>
+
+              <div className="feature-card">
+                <FaMoneyBillWave id="card-icon"/>
+                <h2>1B+ Approved</h2>
+                <p>Secure and encrypted transactions with no hidden fees</p>
+              </div>
+
+              <div className="feature-card">
+                <FaMoneyBillWave id="card-icon"/>
+                <h2>1B+ Approved</h2>
+                <p>Secure and encrypted transactions with no hidden fees</p>
+              </div>
+
+              <div className="feature-card">
+                <FaMoneyBillWave id="card-icon"/>
+                <h2>1B+ Approved</h2>
+                <p>Secure and encrypted transactions with no hidden fees</p>
               </div>
             </div>
           </div>
