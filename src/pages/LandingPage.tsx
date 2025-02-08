@@ -70,7 +70,7 @@ const LandingPage = () => {
               <div className="feature-card">
                 <FaMoneyBillWave id="card-icon"/>
                 <h2>1B+ Approved</h2>
-                <p>Secure and encrypted transactions with no hidden fees</p>
+                <p>Over 1 billion naira successfully loaned.</p>
               </div>
 
               <div className="feature-card">

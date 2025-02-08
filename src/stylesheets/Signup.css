@@ -15,7 +15,7 @@
     align-items: center;
 }
 
-#signup-lady{
+img#signup-lady{
     width: 520px;
 }
 
@@ -39,6 +39,8 @@
 .form-welcome > p{
     font-size: 20px;
     color: #1E3A8A;
+    line-height: 1.5;
+    width: 450px;
 }
 
 span#logo-name{
@@ -54,6 +56,7 @@ span#logo-name{
     display: flex;
     align-items: center;
     gap: 5px;
+    position: relative;
 }
 
 input#form-input{
@@ -91,4 +94,62 @@ button.signup-butn:hover{
     cursor: pointer;
     background-color: #1E3A8A;
     color: white;
+}
+
+
+#pass-eye{
+    font-size: 20px;
+    color: #1E3A8A;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVENESS */
+
+@media screen and (max-width: 1300px) {
+    img#signup-lady{
+        width: 380px;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .signup-form{
+        width: 56%;
+    }
+}
+
+@media screen and (max-width: 899px) {
+    .signup-form{
+        width: 100%;
+        padding: 25px 40px;
+    }
+    .signup-image{
+        display: none;
+    }
+    .form-welcome > p{
+        width: 100%;
+    }
+    input#form-input{
+        width: 100%;
+    }
+    .input-wrapper{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .signup-form{
+        padding: 20px;
+    }
+    
 }

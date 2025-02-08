@@ -46,7 +46,7 @@ const Navbar = () => {
           <div className="tab-navbar-slide-cover">
             <div className="tab-navbar-slide">
               <div className="tab-navbar-slide-option">
-                <Link id="nav-option" to={'/signin'}>
+                <Link id="nav-option" to={'/signup'}>
                   Sign In
                 </Link>
               </div>

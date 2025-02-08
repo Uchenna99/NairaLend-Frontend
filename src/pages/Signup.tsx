@@ -1,6 +1,7 @@
 import "../stylesheets/Signup.css"
 import lady from "../assets/Images/hero_image.png"
 import { LuEyeClosed } from "react-icons/lu";
+import { LuEye } from "react-icons/lu";
 import { useState } from "react";
 
 
@@ -33,11 +34,11 @@ const Signup = () => {
           <input id="form-input" type="text" placeholder="Email" />
 
           <div className="input-wrapper">
-            <input id="form-input" type="text" placeholder="Password" />
+            <input id="form-input" type={showPassword? 'text':'password'} placeholder="Password" />
             {
               showPassword?
-              <LuEyeClosed /> :
-              <LuEyeClosed />
+              <LuEyeClosed id="pass-eye" onClick={()=>setShowPassword(false)} /> :
+              <LuEye id="pass-eye" onClick={()=>setShowPassword(true)} />
             }
           </div>
 
