@@ -10,6 +10,7 @@ const LandingPage = () => {
       <Navbar/>
 
       <div className="landing-wrapper">
+
         <div className="hero-section">
           <div className="hero-container">
             <div className="hero-left">
@@ -34,6 +35,9 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
+
+
+        <div className="why-us-section"></div>
       </div>
     </>
   )
