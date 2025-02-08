@@ -27,7 +27,7 @@ const LandingPage = () => {
                 <Link id="hero-butn" to={''}>
                   Loan Calculator
                 </Link>
-                <Link id="hero-butn" to={''}>
+                <Link id="hero-butn" to={'/signup'}>
                   Get a Loan
                 </Link>
               </div>
