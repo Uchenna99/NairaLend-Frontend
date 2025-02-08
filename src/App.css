@@ -12,5 +12,289 @@
 .navbar-container{
   width: 100%;
   height: 70px;
-  background-color: aqua;
+  background-color: #1E3A8A;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+  padding: 0 40px;
+}
+
+
+
+.main-navbar{
+  width: 1200px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: aliceblue; */
+}
+
+
+.main-nav-left{
+  min-width: fit-content;
+  height: fit-content;
+  /* background-color: pink; */
+  
+}
+
+.main-nav-left > p{
+  font-family: head;
+  font-size: 30px;
+  color: white;
+}
+
+
+.main-nav-right{
+  width: 210px;
+  height: 100%;
+  /* background-color: peru; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+#nav-login{
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+#nav-login:hover{
+  text-decoration: underline;
+}
+
+#nav-btn{
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+#nav-btn:hover{
+  transition: 300ms;
+  background-color: #FFC107;
+  border-color: #FFC107;
+  color: #1E3A8A;
+  font-weight: 700;
+}
+
+
+
+
+.tablet-navbar{
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+/* LANDING PAGE */
+
+/* HERO SECTION */
+
+.landing-wrapper{
+  width: 100%;
+  height: fit-content;
+}
+
+
+.hero-section{
+  width: 100%;
+  height: 800px;
+  background-color: #1E3A8A;
+  display: flex;
+  justify-content: center;
+  padding: 0 40px 150px;
+}
+
+.hero-container{
+  width: 1200px;
+  height: 100%;
+  /* background-color: aqua; */
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.hero-left{
+  width: 500px;
+  height: fit-content;
+  /* background-color: black; */
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero-left-main{
+  width: 100%;
+  height: fit-content;
+}
+
+.hero-left-main > h2{
+  color: white;
+  font-size: 75px;
+}
+
+.hero-left-sub{
+  width: 100%;
+  height: fit-content;
+}
+
+.hero-left-sub > p{
+  color: white;
+  font-size: 16px;
+}
+
+.hero-left-buttons{
+  width: 100%;
+  height: fit-content;
+  padding: 20px 0;
+  display: flex;
+  gap: 20px;
+}
+
+#hero-butn{
+  font-size: 20px;
+  font-weight: bold;
+  color: #1E3A8A;
+  text-decoration: none;
+  background-color: #FFC107;
+  border-radius: 5px;
+  padding: 15px 20px;
+}
+
+#hero-butn:hover{
+  transition: 300ms;
+  background-color: #fdcd40;
+}
+
+
+
+
+
+.hero-right{
+  width: 200px;
+  height: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  /* background-color: black; */
+}
+
+img#hero-lady{
+  width: 450px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* RESPONSIVENESS */
+
+@media screen and (max-width: 1300px) {
+  .main-navbar{
+    width: 100%;
+  }
+  .hero-container{
+    width: 100%;
+  }
+  
+}
+
+
+@media screen and (max-width: 1050px) {
+  .hero-section{
+    height: 700px;
+    padding: 0 40px 75px;
+  }
+  .hero-left{
+    width: 420px;
+  }
+  .hero-left-main > h2{
+    font-size: 65px;
+  }
+
+  img#hero-lady{
+    width: 400px;
+  }
+}
+
+
+@media screen and (max-width: 899px) {
+  .hero-section{
+    height: fit-content;
+  }
+  .hero-container{
+    height: fit-content;
+    flex-direction: column;
+    padding-top: 100px;
+  }
+  .hero-left{
+    width: 100%;
+  }
+  .hero-right{
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+  }
+  .hero-left-main > h2{
+    font-size: 50px;
+  }
+}
+
+
+@media screen and (max-width: 520px) {
+  .navbar-container{
+    padding: 0 20px;
+  }
+  .main-navbar{
+    display: none;
+  }
+  .tablet-navbar{
+    display: flex;
+  }
+
+  .hero-section{
+    padding: 0 20px 40px;
+  }
+  .hero-left-main > h2{
+    font-size: 40px;
+  }
+  .hero-left-buttons{
+    flex-direction: column;
+  }
+  #hero-butn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  img#hero-lady{
+    width: 90%;
+  }
 }
