@@ -46,6 +46,7 @@ img#signup-lady{
 span#logo-name{
     font-family: head;
     font-size: 25px;
+    cursor: pointer;
 }
 
 
@@ -59,7 +60,7 @@ span#logo-name{
     position: relative;
 }
 
-input#form-input{
+input.form-input{
     width: 450px;
     height: 40px;
     border: none;
@@ -70,11 +71,11 @@ input#form-input{
     color: #1E3A8A;
 }
 
-input#form-input:focus{
+input.form-input:focus{
     outline: 3px solid #1E3A8A;
 }
 
-input#form-input::placeholder{
+input.form-input::placeholder{
     color: #1E3A8A;
 }
 
@@ -103,6 +104,25 @@ button.signup-butn:hover{
     position: absolute;
     right: 10px;
     cursor: pointer;
+}
+
+
+.redirect-div{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.redirect-div > p{
+    color: #1E3A8A;
+}
+
+#redirect-link{
+    text-decoration: none;
+    color: blue;
 }
 
 
@@ -139,7 +159,7 @@ button.signup-butn:hover{
     .form-welcome > p{
         width: 100%;
     }
-    input#form-input{
+    input.form-input{
         width: 100%;
     }
     .input-wrapper{

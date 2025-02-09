@@ -3,10 +3,42 @@ import lady from "../assets/Images/hero_image.png"
 import { LuEyeClosed } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { LoginResponse } from "../components/interfaces";
+
+interface Login {
+  email: string;
+  password: string;
+}
+
 
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const loginData = {
+    email: email,
+    password: password
+  }
+
+
+  const handleLogin = async (data: Login)=>{
+    try {
+      await axios.post('http://localhost:3050/api/v1/auth/login', data)
+      .then((response)=>{
+        const saveResponse = response.data as LoginResponse
+        localStorage.setItem('nairaLender', saveResponse.accessToken);
+        navigate('/dashboard')
+      })
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <>
@@ -17,19 +49,21 @@ const Signup = () => {
 
         <div className="signup-form">
           <div className="form-welcome">
-            <p>
+            <p onClick={()=> navigate('/')}>
               <span id="logo-name">NairaLender</span>
             </p>
             <p style={{fontSize:'16px'}}>
-              Create your account and get one step closer to your first loan from us.
+              Welcome back! Login to your account.
             </p>
           </div>
 
 
-          <input id="form-input" type="text" placeholder="Email" />
+          <input className="form-input" type="text" placeholder="Email" value={email}
+          onChange={(e)=>setEmail(e.target.value)}/>
 
           <div className="input-wrapper">
-            <input id="form-input" type={showPassword? 'text':'password'} placeholder="Password" />
+            <input className="form-input" type={showPassword? 'text':'password'} placeholder="Password" value={password}
+            onChange={(e)=>setPassword(e.target.value)}/>
             {
               showPassword?
               <LuEyeClosed id="pass-eye" onClick={()=>setShowPassword(false)} /> :
@@ -37,7 +71,7 @@ const Signup = () => {
             }
           </div>
 
-          <button className="signup-butn">
+          <button className="signup-butn" onClick={()=>handleLogin(loginData)}>
             Login
           </button>
         </div>

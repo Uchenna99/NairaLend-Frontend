@@ -3,9 +3,11 @@ import lady from "../assets/Images/hero_image.png"
 import { LuEyeClosed } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -17,7 +19,7 @@ const Signup = () => {
 
         <div className="signup-form">
           <div className="form-welcome">
-            <p>
+            <p onClick={()=> navigate('/')}>
               <span id="logo-name">NairaLender</span>
             </p>
             <p style={{fontSize:'16px'}}>
@@ -25,16 +27,16 @@ const Signup = () => {
             </p>
           </div>
 
-          <input id="form-input" type="text" placeholder="Name" />
+          <input className="form-input" type="text" placeholder="Name" />
 
-          <input id="form-input" type="text" placeholder="Surname" />
+          <input className="form-input" type="text" placeholder="Surname" />
 
-          <input id="form-input" type="text" placeholder="Phone Number (eg: 08012345678)" />
+          <input className="form-input" type="text" placeholder="Phone Number (eg: 08012345678)" />
 
-          <input id="form-input" type="text" placeholder="Email" />
+          <input className="form-input" type="text" placeholder="Email" />
 
           <div className="input-wrapper">
-            <input id="form-input" type={showPassword? 'text':'password'} placeholder="Password" />
+            <input className="form-input" type={showPassword? 'text':'password'} placeholder="Password" />
             {
               showPassword?
               <LuEyeClosed id="pass-eye" onClick={()=>setShowPassword(false)} /> :
@@ -45,6 +47,13 @@ const Signup = () => {
           <button className="signup-butn">
             Create Account
           </button>
+
+          <div className="redirect-div">
+            <p>Already have an account?</p>
+            <Link id="redirect-link" to={'/login'}>
+              Login
+            </Link>
+          </div>
         </div>
       </div>
     </>
