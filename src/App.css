@@ -556,6 +556,13 @@ button#dash-bottom-butn{
   color: #1E3A8A;
 }
 
+button#dash-bottom-butn:hover{
+  transition: 200ms;
+  cursor: pointer;
+  background-color: #1E3A8A;
+  color: white;
+}
+
 
 
 
