@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { HiOutlineChevronUp } from "react-icons/hi";
 import { AddBankAccount } from "./interfaces";
@@ -10,8 +10,12 @@ interface Props {
 const LoanStep2 = ({sendData}: Props) => {
     const [drop, setDrop] = useState(false);
     const [bank, setBank] = useState('Choose a bank');
-    const [type, setType] = useState('current');
-    const [acc, setAcc] = useState('current');
+    const [type, setType] = useState('Current');
+    const [acc, setAcc] = useState('');
+
+    useEffect(()=>{
+        sendData(submit);
+    },[bank, acc, type])
 
     const submit = {
         bankName: bank,
@@ -27,7 +31,7 @@ const LoanStep2 = ({sendData}: Props) => {
         <div className="loan-mid-section">
             <h4>Add your bank account</h4>
 
-            <div className="laon-input-wrapper">
+            <div className="loan-input-wrapper">
                 <h4>Select a bank</h4>
                 <div className="bank-select-div" onClick={()=>setDrop(!drop)}
                     style={{borderWidth: drop? '3px':''}}>
@@ -40,7 +44,9 @@ const LoanStep2 = ({sendData}: Props) => {
                     <div className="bank-select-dropdown" style={{display: drop? 'flex':'none'}}>
                         {
                             bankList.map((bank)=>(
-                                <div className="bank-option" onClick={()=>setBank(bank)}>
+                                <div className="bank-option" key={bank} onClick={()=>{
+                                    setBank(bank); 
+                                    }}>
                                     <p>{bank}</p>
                                 </div>
                             ))
@@ -49,23 +55,30 @@ const LoanStep2 = ({sendData}: Props) => {
                 </div>
             </div>
 
-            <div className="laon-input-wrapper">
+            <div className="loan-input-wrapper">
                 <h4>Account number</h4>
                 
-                <input type="text" value={acc} onChange={(e)=>setAcc(e.target.value)}/>
+                <input type="text" value={acc} placeholder="0123456789"
+                    onChange={(e)=>{
+                    setAcc(e.target.value);
+                }}/>
             </div>
 
             <div className="acc-type-wrapper">
                 <h4>Account type</h4>
 
                 <div className="account-options">
-                    <div className="select-duration" onClick={()=>setType('savings')}>
+                    <div className="select-duration" onClick={()=>{
+                        setType('Savings');
+                        }}>
                         <p>Savings</p>
                     </div>
-                    <div className="select-duration" onClick={()=>setType('current')}>
+                    <div className="select-duration" onClick={()=>{
+                        setType('Current');
+                        }}>
                         <p>Current</p>
                     </div>
-                    <div className="type-selector" style={{left: type==='savings'? 0: type==='current'? '120px':''}}></div>
+                    <div className="type-selector" style={{left: type==='Savings'? 0: type==='Current'? '120px':''}}></div>
                 </div>
             </div>
         </div>

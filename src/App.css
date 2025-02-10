@@ -553,6 +553,7 @@ img#hero-lady{
 button#dash-bottom-butn{
   width: fit-content;
   height: 45px;
+  background-color: white;
   border: 2px solid #1E3A8A;
   border-radius: 5px;
   padding: 0 20px;
@@ -570,7 +571,7 @@ button#dash-bottom-butn:hover{
 
 
 
-.laon-input-wrapper{
+.loan-input-wrapper{
   width: 400px;
   height: fit-content;
   display: flex;
@@ -631,7 +632,7 @@ button#dash-bottom-butn:hover{
 }
 
 
-.laon-input-wrapper > input{
+.loan-input-wrapper > input{
   width: 100%;
   height: 40px;
   border: none;
@@ -642,8 +643,12 @@ button#dash-bottom-butn:hover{
   color: #1E3A8A;
 }
 
-.laon-input-wrapper > input:focus{
+.loan-input-wrapper > input:focus{
   outline: 3px solid #1E3A8A;
+}
+
+.loan-input-wrapper > input::placeholder{
+  color: lightgray;
 }
 
 
@@ -661,19 +666,23 @@ button#dash-bottom-butn:hover{
   color: #1E3A8A;
 }
 
-.empty-bank-acc{
+.bank-acc-box{
   width: 100%;
   height: fit-content;
   padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  /* background-color: palegoldenrod; */
 }
 
-.empty-bank-acc > h4{
+.bank-acc-box > h4{
   font-size: 18px;
 }
 
 .add-bank-acc{
   width: 300px;
-  height: 250px;
+  height: 150px;
   border: 2px solid;
   border-radius: 5px;
   display: flex;

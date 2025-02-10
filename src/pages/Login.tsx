@@ -3,7 +3,7 @@ import lady from "../assets/Images/hero_image.png"
 import { LuEyeClosed } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { LoginResponse } from "../components/interfaces";
 
@@ -74,6 +74,13 @@ const Signup = () => {
           <button className="signup-butn" onClick={()=>handleLogin(loginData)}>
             Login
           </button>
+
+          <div className="redirect-div">
+            <p>Don't have an account?</p>
+            <Link id="redirect-link" to={'/signup'}>
+              Sign Up
+            </Link>
+          </div>
         </div>
       </div>
     </>

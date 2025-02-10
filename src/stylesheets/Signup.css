@@ -125,6 +125,10 @@ button.signup-butn:hover{
     color: blue;
 }
 
+#redirect-link:hover{
+    text-decoration: underline;
+}
+
 
 
 

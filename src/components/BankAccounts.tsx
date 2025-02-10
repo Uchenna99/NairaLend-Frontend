@@ -1,18 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoanStep2 from "./LoanStep2";
 import axios from "axios";
-import { AddBankAccount } from "./interfaces";
+import { AddBankAccount, DB_BankAccount } from "./interfaces";
 
 
 const BankAccounts = () => {
   const [step, setStep] = useState(1);
   const [submitData, setSubmitData] = useState<AddBankAccount>();
+  const [bankAccounts, setBankAccounts] = useState<DB_BankAccount[]|null>(null);
 
-  const submit = {
-    bankName: '',
-    accountNumber: '',
-    accountType: ''
-  }
+  useEffect(()=>{
+    const getAccounts = async ()=>{
+
+    }
+    getAccounts();
+  },[])
+
 
   const handleProps = (data: AddBankAccount)=>{
     setSubmitData(data);
@@ -20,9 +23,10 @@ const BankAccounts = () => {
 
   const handleCreate = async ()=>{
     try {
-      axios.post('localhost:3050/api/v1/user/new-bank-account', )
+      axios.post('http://localhost:3050/api/v1/user/new-bank-account', submitData)
       .then((response)=>{
-        console.log(response)
+        alert(response.data.message);
+        setStep(1);
       })
     } catch (error) {
       console.log(error);
@@ -35,7 +39,7 @@ const BankAccounts = () => {
       <div className="bank-acc-wrapper">
         {
           step === 1 && 
-          <div className="empty-bank-acc">
+          <div className="bank-acc-box">
             <h4>Add a bank account</h4>
             <div className="add-bank-acc" onClick={()=>setStep(2)}>
               <p>+</p>
@@ -45,7 +49,7 @@ const BankAccounts = () => {
 
         {
           step === 2 &&
-          <LoanStep2 />
+          <LoanStep2 sendData={handleProps} />
         }
 
         {
