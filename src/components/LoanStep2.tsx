@@ -5,6 +5,8 @@ import { HiOutlineChevronUp } from "react-icons/hi";
 const LoanStep2 = () => {
     const [drop, setDrop] = useState(false);
     const [bank, setBank] = useState('Choose a bank');
+    const [type, setType] = useState('current');
+
 
     const bankList = ['First Bank', 'United Bank for Africa', 'Access Bank', 'Wema Bank', 'Fidelity Bank', 'Union Bank', 'Zenith Bank', 'Eco Bank']
 
@@ -39,6 +41,20 @@ const LoanStep2 = () => {
                 <h4>Account number</h4>
                 
                 <input type="text" />
+            </div>
+
+            <div className="acc-type-wrapper">
+                <h4>Account type</h4>
+
+                <div className="account-options">
+                    <div className="select-duration" onClick={()=>setType('savings')}>
+                        <p>Savings</p>
+                    </div>
+                    <div className="select-duration" onClick={()=>setType('current')}>
+                        <p>Current</p>
+                    </div>
+                    <div className="type-selector" style={{left: type==='savings'? 0: type==='current'? '120px':''}}></div>
+                </div>
             </div>
         </div>
     </>
