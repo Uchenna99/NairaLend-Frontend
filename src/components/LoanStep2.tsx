@@ -1,11 +1,23 @@
 import { useState } from "react";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { HiOutlineChevronUp } from "react-icons/hi";
+import { AddBankAccount } from "./interfaces";
 
-const LoanStep2 = () => {
+interface Props {
+    sendData: (data: AddBankAccount)=>void;
+}
+
+const LoanStep2 = ({sendData}: Props) => {
     const [drop, setDrop] = useState(false);
     const [bank, setBank] = useState('Choose a bank');
     const [type, setType] = useState('current');
+    const [acc, setAcc] = useState('current');
+
+    const submit = {
+        bankName: bank,
+        accountNumber: acc,
+        accountType: type
+    }
 
 
     const bankList = ['First Bank', 'United Bank for Africa', 'Access Bank', 'Wema Bank', 'Fidelity Bank', 'Union Bank', 'Zenith Bank', 'Eco Bank']
@@ -40,7 +52,7 @@ const LoanStep2 = () => {
             <div className="laon-input-wrapper">
                 <h4>Account number</h4>
                 
-                <input type="text" />
+                <input type="text" value={acc} onChange={(e)=>setAcc(e.target.value)}/>
             </div>
 
             <div className="acc-type-wrapper">
