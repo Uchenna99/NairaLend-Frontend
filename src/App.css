@@ -543,6 +543,7 @@ img#hero-lady{
   align-items: start;
   justify-content: end;
   padding: 10px 40px 0;
+  gap: 30px;
 }
 
 button#dash-bottom-butn{
@@ -563,6 +564,77 @@ button#dash-bottom-butn:hover{
   color: white;
 }
 
+
+
+.laon-input-wrapper{
+  width: 400px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
+  color: #1E3A8A;
+  
+}
+
+.bank-select-div{
+  width: 100%;
+  height: 40px;
+  border: 1px solid;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  position: relative;
+}
+
+#bank-chevron{
+  position: absolute;
+  right: 15px;
+  font-size: 20px;
+  
+}
+
+
+
+.bank-select-dropdown{
+  width: 100%;
+  height: 300px;
+  border: 1px solid;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.bank-option{
+  width: 100%;
+  height: fit-content;
+  padding: 5px 15px;
+}
+
+.bank-option:hover{
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+
+.laon-input-wrapper > input{
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  padding: 0 15px;
+  outline: 1px solid #1E3A8A;
+  font-size: 18px;
+  color: #1E3A8A;
+}
+
+.laon-input-wrapper > input:focus{
+  outline: 3px solid #1E3A8A;
+}
 
 
 
