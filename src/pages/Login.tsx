@@ -32,8 +32,8 @@ const Signup = () => {
       .then((response)=>{
         const saveResponse = response.data as LoginResponse
         localStorage.setItem('nairaLender', saveResponse.accessToken);
-        navigate('/dashboard')
       })
+      .then(()=>navigate('/dashboard'))
       
     } catch (error) {
       console.log(error);

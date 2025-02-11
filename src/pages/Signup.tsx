@@ -4,11 +4,45 @@ import { LuEyeClosed } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 const Signup = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const signupData = {
+    firstName: firstName,
+    lastName: lastName,
+    phone: phone,
+    email: email,
+    password: password
+
+  }
+
+  const handleSignup = async ()=>{
+    try {
+      if(firstName===''||lastName===''||phone===''||email===''||password==='') {
+        alert('Please fill in all fields');
+      }else if(password.length < 8) {
+        alert('Password must be at least 8 characters long');
+      }else{
+        await axios.post('http://localhost:3050/api/v1/user/signup', signupData)
+        .then((response)=>{
+          alert(response.data.message);
+          navigate('/login');
+        })
+      }
+    } catch (error) {
+      console.log(error);
+      alert(error)
+    }
+  }
 
   return (
     <>
@@ -27,16 +61,21 @@ const Signup = () => {
             </p>
           </div>
 
-          <input className="form-input" type="text" placeholder="Name" />
+          <input className="form-input" type="text" placeholder="Name"
+          onChange={(e)=>{setFirstName(e.target.value)}} />
 
-          <input className="form-input" type="text" placeholder="Surname" />
+          <input className="form-input" type="text" placeholder="Surname"
+          onChange={(e)=>{setLastName(e.target.value)}} />
 
-          <input className="form-input" type="text" placeholder="Phone Number (eg: 08012345678)" />
+          <input className="form-input" type="text" placeholder="Phone Number (eg: 08012345678)"
+          onChange={(e)=>{setPhone(e.target.value)}} />
 
-          <input className="form-input" type="text" placeholder="Email" />
+          <input className="form-input" type="text" placeholder="Email"
+          onChange={(e)=>{setEmail(e.target.value)}} />
 
           <div className="input-wrapper">
-            <input className="form-input" type={showPassword? 'text':'password'} placeholder="Password" />
+            <input className="form-input" type={showPassword? 'text':'password'} placeholder="Password"
+            onChange={(e)=>{setPassword(e.target.value)}} />
             {
               showPassword?
               <LuEyeClosed id="pass-eye" onClick={()=>setShowPassword(false)} /> :
@@ -44,7 +83,7 @@ const Signup = () => {
             }
           </div>
 
-          <button className="signup-butn">
+          <button className="signup-butn" onClick={handleSignup}>
             Create Account
           </button>
 
