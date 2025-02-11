@@ -34,7 +34,7 @@ const TakeLoan = () => {
 
             { step === 1 && <LoanStep1 /> }
 
-            { step === 2 && <LoanStep2 /> }
+            {/* { step === 2 && <LoanStep2 sendData={} /> } */}
             
 
             

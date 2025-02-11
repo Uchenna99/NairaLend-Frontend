@@ -2,19 +2,34 @@ import "../stylesheets/Signup.css"
 import lady from "../assets/Images/hero_image.png"
 import { LuEyeClosed } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ClipLoader } from "react-spinners";
 
 
 const Signup = () => {
   const navigate = useNavigate();
+  const [pageLoading, setPageLoading] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(()=>{
+      const checkUser = async()=>{
+        const user = await localStorage.getItem('nairaLender');
+        if(user){
+          navigate('/dashboard');
+        }else{
+          setPageLoading(false);
+          console.log('Cannot find user');
+        }
+      }
+      checkUser();
+    },[])
 
   const signupData = {
     firstName: firstName,
@@ -46,6 +61,15 @@ const Signup = () => {
 
   return (
     <>
+    {
+      pageLoading?
+      <div className="pageLoader">
+        <ClipLoader 
+          color="#1E3A8A"
+          size={70}
+        /> 
+      </div>
+      :
       <div className="signup-wrapper">
         <div className="signup-image">
           <img id="signup-lady" src={lady} alt="" />
@@ -95,6 +119,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+    }
     </>
   )
 }

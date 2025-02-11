@@ -53,11 +53,20 @@
 .main-nav-right{
   width: 210px;
   height: 100%;
-  /* background-color: peru; */
+  background-color: peru;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+}
+
+.main-nav-right > p{
+  font-size: 18px;
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  text-wrap: nowrap;
 }
 
 #nav-login{
@@ -163,6 +172,12 @@
   height: 50px;
   display: flex;
   align-items: center;
+}
+
+.tab-navbar-slide-option > p{
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 #nav-option{

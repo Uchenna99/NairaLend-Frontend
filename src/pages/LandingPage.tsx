@@ -4,13 +4,34 @@ import lady from "../assets/Images/hero_image.png"
 import { BsShieldFillCheck } from "react-icons/bs";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { FaMoneyBillWave } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { jwtDecode } from "jwt-decode";
+import { JWT } from "../components/interfaces";
 
 
 
 const LandingPage = () => {
+  const [user, setUser] = useState(false);
+  const [userName, setUserName] = useState('');
+
+  useEffect(()=>{
+      const checkUser = async()=>{
+        const user = await localStorage.getItem('nairaLender');
+        if(!user){
+          console.log('Error: Cannot find user');
+        }else{
+          const getUser: JWT = jwtDecode(user);
+          setUserName(getUser.name);
+          setUser(true);
+        }
+      }
+      checkUser();
+  },[])
+  
+
   return (
     <>
-      <Navbar/>
+      <Navbar user={user} userName={userName} />
 
       <div className="landing-wrapper">
 
