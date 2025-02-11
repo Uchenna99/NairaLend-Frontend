@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { HiOutlineChevronUp } from "react-icons/hi";
-import { AddBankAccount } from "./interfaces";
+import { AddBankAccount, JWT } from "./interfaces";
+import { jwtDecode } from "jwt-decode";
 
 interface Props {
     sendData: (data: AddBankAccount)=>void;
@@ -12,7 +13,21 @@ const LoanStep2 = ({sendData}: Props) => {
     const [bank, setBank] = useState('Choose a bank');
     const [type, setType] = useState('Current');
     const [acc, setAcc] = useState('');
+    const [userId, setUserId] = useState('');
 
+    useEffect(()=>{
+        const checkUser = async()=>{
+          const user = await localStorage.getItem('nairaLender');
+          if(!user){
+            console.log('Error: Cannot find user');
+          }else{
+            const userInfo: JWT = jwtDecode(user);
+            setUserId(userInfo.id);
+          }
+        }
+        checkUser();
+      },[])
+  
     useEffect(()=>{
         sendData(submit);
     },[bank, acc, type])
@@ -20,7 +35,8 @@ const LoanStep2 = ({sendData}: Props) => {
     const submit = {
         bankName: bank,
         accountNumber: acc,
-        accountType: type
+        accountType: type,
+        userId: userId
     }
 
 

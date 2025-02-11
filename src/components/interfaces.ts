@@ -8,6 +8,7 @@ export interface AddBankAccount {
   bankName: string;
   accountNumber: string;
   accountType: string;
+  userId: string;
 }
 
 export interface DB_BankAccount {
@@ -15,4 +16,12 @@ export interface DB_BankAccount {
   bankName: string;
   accountNumber: string;
   accountType: string;
+}
+
+
+export interface JWT {
+  iat: number;
+  id: string;
+  name: string;
+  role: 'USER'|'ADMIN';
 }

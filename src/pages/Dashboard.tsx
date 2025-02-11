@@ -6,12 +6,13 @@ import { useEffect, useState } from "react";
 import TakeLoan from "../components/TakeLoan";
 import BankAccounts from "../components/BankAccounts";
 import PaymentCards from "../components/PaymentCards";
+import { ClipLoader } from "react-spinners";
 
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [page, setPage] = useState('loan');
-  const [loading, setLoading] = useState(true);
+  const [pageloading, setPageLoading] = useState(true);
 
 
   useEffect(()=>{
@@ -20,7 +21,7 @@ const Dashboard = () => {
         if(!user){
           console.log('Error: Cannot find user');
         }else{
-          setLoading(false);
+          setPageLoading(false);
         }
       }
       checkUser();
@@ -28,46 +29,56 @@ const Dashboard = () => {
 
   return (
     <>
-        <div className="dashboard-wrapper">
-          <div className="dash-options-panel">
-            <div className="dash-logo-area">
-              <p style={{fontFamily:'head'}} onClick={()=>navigate('/')}>
-                NairaLender
-              </p>
+        {
+          pageloading?
+          <div className="pageLoader">
+            <ClipLoader 
+              color="#1E3A8A"
+              size={70}
+            /> 
+          </div>
+          :
+          <div className="dashboard-wrapper">
+            <div className="dash-options-panel">
+              <div className="dash-logo-area">
+                <p style={{fontFamily:'head'}} onClick={()=>navigate('/')}>
+                  NairaLender
+                </p>
+              </div>
+
+              <div className="dash-section-options">
+                <div className="dash-option" style={{backgroundColor: page==='loan'? '#0056B3':''}}
+                  onClick={()=>setPage('loan')}>
+                  <GiCash id="option-icon" />
+                  <p>Take a loan</p>
+                </div>
+
+                <div className="dash-option" style={{backgroundColor: page==='bank'? '#0056B3':''}}
+                  onClick={()=>setPage('bank')}>
+                  <MdAccountBalanceWallet id="option-icon" />
+                  <p>Bank Accounts</p>
+                </div>
+
+                <div className="dash-option" style={{backgroundColor: page==='card'? '#0056B3':''}}
+                  onClick={()=>setPage('card')}>
+                  <IoCardOutline id="option-icon" />
+                  <p>Payment Cards</p>
+                </div>
+              </div>
             </div>
 
-            <div className="dash-section-options">
-              <div className="dash-option" style={{backgroundColor: page==='loan'? '#0056B3':''}}
-                onClick={()=>setPage('loan')}>
-                <GiCash id="option-icon" />
-                <p>Take a loan</p>
-              </div>
 
-              <div className="dash-option" style={{backgroundColor: page==='bank'? '#0056B3':''}}
-                onClick={()=>setPage('bank')}>
-                <MdAccountBalanceWallet id="option-icon" />
-                <p>Bank Accounts</p>
-              </div>
+            <div className="dash-display-area">
 
-              <div className="dash-option" style={{backgroundColor: page==='card'? '#0056B3':''}}
-                onClick={()=>setPage('card')}>
-                <IoCardOutline id="option-icon" />
-                <p>Payment Cards</p>
-              </div>
+              { page === 'loan' && <TakeLoan /> }
+
+              { page === 'bank' && <BankAccounts /> }
+
+              { page === 'card' && <PaymentCards /> }
+              
             </div>
           </div>
-
-
-          <div className="dash-display-area">
-
-            { page === 'loan' && <TakeLoan /> }
-
-            { page === 'bank' && <BankAccounts /> }
-
-            { page === 'card' && <PaymentCards /> }
-            
-          </div>
-        </div>
+        }
     </>
   )
 }
