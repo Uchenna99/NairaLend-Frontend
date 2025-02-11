@@ -51,13 +51,13 @@
 
 
 .main-nav-right{
-  width: 210px;
+  width: 500px;
   height: 100%;
-  background-color: peru;
+  /* background-color: peru; */
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: end;
+  gap: 30px;
 }
 
 .main-nav-right > p{
@@ -94,6 +94,28 @@
   border-color: #FFC107;
   color: #1E3A8A;
   font-weight: 700;
+}
+
+.logout-div{
+  min-width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* background-color: aquamarine; */
+}
+
+.logout-div > p{
+  color: white;
+}
+
+.logout-div:hover{
+  cursor: pointer;
+}
+
+#logout-icon{
+  font-size: 25px;
+  color: white;
 }
 
 

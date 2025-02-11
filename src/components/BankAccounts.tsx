@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import LoanStep2 from "./LoanStep2";
 import axios from "axios";
-import { AddBankAccount, DB_BankAccount } from "./interfaces";
+import { AddBankAccount } from "./interfaces";
 
 
 const BankAccounts = () => {
   const [step, setStep] = useState(1);
   const [submitData, setSubmitData] = useState<AddBankAccount>();
-  const [bankAccounts, setBankAccounts] = useState<DB_BankAccount[]|null>(null);
+  // const [bankAccounts, setBankAccounts] = useState<DB_BankAccount[]|null>(null);
 
   useEffect(()=>{
     const getAccounts = async ()=>{

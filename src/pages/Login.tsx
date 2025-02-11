@@ -42,16 +42,23 @@ const Signup = () => {
   }
 
   const handleLogin = async (data: Login)=>{
-    try {
-      await axios.post('http://localhost:3050/api/v1/auth/login', data)
-      .then((response)=>{
-        const saveResponse = response.data as LoginResponse
-        localStorage.setItem('nairaLender', saveResponse.accessToken);
-      })
-      .then(()=>navigate('/dashboard'))
-      
-    } catch (error) {
-      console.log(error);
+    if(email===''||password===''){
+      alert('Please fill in all fields');
+    }else if (password.length < 8){
+      alert('Password must be at least 8 characters long');
+    }else{
+      try {
+        await axios.post('http://localhost:3050/api/v1/auth/login', data)
+        .then((response)=>{
+          const saveResponse = response.data as LoginResponse
+          localStorage.setItem('nairaLender', saveResponse.accessToken);
+        })
+        .then(()=>navigate('/dashboard'))
+        
+      } catch (error) {
+        console.log(error);
+        alert(error);
+      }
     }
   }
 

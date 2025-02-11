@@ -3,6 +3,7 @@ import { RiMenu5Fill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
 import { logOut } from "./Logout";
+import { AiOutlineLogout } from "react-icons/ai";
 
 interface Prop {
   user: boolean;
@@ -24,7 +25,16 @@ const Navbar = ({user, userName}: Prop) => {
             {
               user?
               <div className="main-nav-right">
-                <p>Hi, {userName}</p>
+                <Link id="nav-login" to={'/dashboard'}>
+                  Hi, {userName}
+                </Link>
+                <div className="logout-div" onClick={()=>{
+                  logOut();
+                  navigate('/login');
+                }}>
+                  <AiOutlineLogout id="logout-icon" />
+                  <p>Logout</p>
+                </div>
               </div>
               :
               <div className="main-nav-right">
