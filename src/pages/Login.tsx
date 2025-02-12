@@ -5,8 +5,8 @@ import { LuEye } from "react-icons/lu";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { LoginResponse } from "../components/interfaces";
-import { ClipLoader } from "react-spinners";
+import { hostURL, LoginResponse } from "../components/interfaces";
+import { CircleLoader, ClipLoader } from "react-spinners";
 
 interface Login {
   email: string;
@@ -18,6 +18,7 @@ interface Login {
 const Signup = () => {
   const navigate = useNavigate();
   const [pageLoading, setPageLoading] = useState(true);
+  const [loggingIn, setLoggingIn] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -47,8 +48,9 @@ const Signup = () => {
     }else if (password.length < 8){
       alert('Password must be at least 8 characters long');
     }else{
+      setLoggingIn(true);
       try {
-        await axios.post('http://localhost:3050/api/v1/auth/login', data)
+        await axios.post(`${hostURL}/api/v1/auth/login`, data)
         .then((response)=>{
           const saveResponse = response.data as LoginResponse
           localStorage.setItem('nairaLender', saveResponse.accessToken);
@@ -56,6 +58,7 @@ const Signup = () => {
         .then(()=>navigate('/dashboard'))
         
       } catch (error) {
+        setLoggingIn(false);
         console.log(error);
         alert(error);
       }
@@ -104,6 +107,15 @@ const Signup = () => {
 
           <button className="signup-butn" onClick={()=>handleLogin(loginData)}>
             Login
+            {
+              loggingIn &&
+              <div className="button-loader-div">
+                <CircleLoader 
+                color="#1E3A8A"  
+                size={15}
+                />
+              </div>
+            }
           </button>
 
           <div className="redirect-div">

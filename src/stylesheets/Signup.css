@@ -85,9 +85,15 @@ button.signup-butn{
     height: 45px;
     border: 2px solid #1E3A8A;
     border-radius: 5px;
+    background-color: white;
     padding: 0 20px;
     font-size: 18px;
     color: #1E3A8A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
 }
 
 button.signup-butn:hover{

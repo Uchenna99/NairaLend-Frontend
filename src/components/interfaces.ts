@@ -1,3 +1,4 @@
+export const hostURL = 'https://nairalender.up.railway.app';
 
 export interface LoginResponse {
     accessToken: string;

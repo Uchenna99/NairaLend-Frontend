@@ -5,12 +5,14 @@ import { LuEye } from "react-icons/lu";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ClipLoader } from "react-spinners";
+import { CircleLoader, ClipLoader } from "react-spinners";
+import { hostURL } from "../components/interfaces";
 
 
 const Signup = () => {
   const navigate = useNavigate();
   const [pageLoading, setPageLoading] = useState(true);
+  const [signingUp, setSigningUp] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -47,13 +49,15 @@ const Signup = () => {
       }else if(password.length < 8) {
         alert('Password must be at least 8 characters long');
       }else{
-        await axios.post('http://localhost:3050/api/v1/user/signup', signupData)
+        setSigningUp(true);
+        await axios.post(`${hostURL}/api/v1/user/signup`, signupData)
         .then((response)=>{
           alert(response.data.message);
           navigate('/login');
         })
       }
     } catch (error) {
+      setSigningUp(false);
       console.log(error);
       alert(error)
     }
@@ -109,6 +113,15 @@ const Signup = () => {
 
           <button className="signup-butn" onClick={handleSignup}>
             Create Account
+            {
+              signingUp &&
+              <div className="button-loader-div">
+                <CircleLoader 
+                color="#1E3A8A"  
+                size={15}
+                />
+              </div>
+            }
           </button>
 
           <div className="redirect-div">

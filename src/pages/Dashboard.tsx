@@ -1,12 +1,14 @@
 import { GiCash } from "react-icons/gi";
 import { MdAccountBalanceWallet } from "react-icons/md";
 import { IoCardOutline } from "react-icons/io5";
+import { AiOutlineLogout } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import TakeLoan from "../components/TakeLoan";
 import BankAccounts from "../components/BankAccounts";
 import PaymentCards from "../components/PaymentCards";
 import { ClipLoader } from "react-spinners";
+import { logOut } from "../components/Logout";
 
 
 const Dashboard = () => {
@@ -64,7 +66,19 @@ const Dashboard = () => {
                   <IoCardOutline id="option-icon" />
                   <p>Payment Cards</p>
                 </div>
+
               </div>
+
+
+              <div className="dash-option" style={{marginTop:'100%'}} 
+                onClick={()=>{
+                  logOut();
+                  navigate('/login');
+                }}>
+                <AiOutlineLogout id="option-icon" />
+                <p>Logout</p>
+              </div>
+
             </div>
 
 
