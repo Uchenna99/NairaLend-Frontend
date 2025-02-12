@@ -1,9 +1,9 @@
 import { useState } from "react";
-import LoanStep2 from "./LoanStep2";
 import axios from "axios";
 import { AddBankAccount, hostURL } from "./interfaces";
 import { CircleLoader } from "react-spinners";
 import BankAccStep1 from "./BankAccStep1";
+import AddNewBankAcc from "./AddNewBankAcc";
 
 
 const BankAccounts = () => {
@@ -54,7 +54,7 @@ const BankAccounts = () => {
 
         {
           step === 2 &&
-          <LoanStep2 sendData={handleProps} />
+          <AddNewBankAcc sendData={handleProps} />
         }
 
         {

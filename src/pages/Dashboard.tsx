@@ -2,6 +2,7 @@ import { GiCash } from "react-icons/gi";
 import { MdAccountBalanceWallet } from "react-icons/md";
 import { IoCardOutline } from "react-icons/io5";
 import { AiOutlineLogout } from "react-icons/ai";
+import { RiSettings3Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import TakeLoan from "../components/TakeLoan";
@@ -9,6 +10,7 @@ import BankAccounts from "../components/BankAccounts";
 import PaymentCards from "../components/PaymentCards";
 import { ClipLoader } from "react-spinners";
 import { logOut } from "../components/Logout";
+import DashboardNavbar from "../components/DashboardNavbar";
 
 
 const Dashboard = () => {
@@ -31,6 +33,7 @@ const Dashboard = () => {
 
   return (
     <>
+        <DashboardNavbar />
         {
           pageloading?
           <div className="pageLoader">
@@ -65,6 +68,12 @@ const Dashboard = () => {
                   onClick={()=>setPage('card')}>
                   <IoCardOutline id="option-icon" />
                   <p>Payment Cards</p>
+                </div>
+
+                <div className="dash-option" style={{backgroundColor: page==='card'? '#0056B3':''}}
+                  onClick={()=>setPage('card')}>
+                  <RiSettings3Line id="option-icon" />
+                  <p>Settings</p>
                 </div>
 
               </div>

@@ -8,7 +8,7 @@ interface Props {
     sendData: (data: AddBankAccount)=>void;
 }
 
-const LoanStep2 = ({sendData}: Props) => {
+const AddNewBankAcc = ({sendData}: Props) => {
     const [drop, setDrop] = useState(false);
     const [bank, setBank] = useState('Choose a bank');
     const [type, setType] = useState('Current');
@@ -102,4 +102,4 @@ const LoanStep2 = ({sendData}: Props) => {
   )
 }
 
-export default LoanStep2;
+export default AddNewBankAcc;

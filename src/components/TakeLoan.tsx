@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LoanStep1 from "./LoanStep1";
-// import LoanStep2 from "./LoanStep2";
+import ListOfBankAcc from "./ListOfBankAcc";
 
 
 const TakeLoan = () => {
@@ -34,29 +34,40 @@ const TakeLoan = () => {
 
             { step === 1 && <LoanStep1 /> }
 
-            {/* { step === 2 && <LoanStep2 sendData={} /> } */}
+            { step === 2 && <ListOfBankAcc /> }
             
 
             
-                {
-                    step === 1 &&
-                    <div className="dash-bottom-section">
-                        <button id="dash-bottom-butn" onClick={()=>setStep(2)}>
-                            Next Step
-                        </button>
-                    </div>
-                }
-                {
-                    step === 2 &&
-                    <div className="dash-bottom-section">
-                        <button id="dash-bottom-butn" onClick={()=>setStep(1)}>
-                            Back
-                        </button>
-                        <button id="dash-bottom-butn" onClick={()=>setStep(3)}>
-                            Next Step
-                        </button>
-                    </div>
-                }
+            {
+                step === 1 &&
+                <div className="dash-bottom-section">
+                    <button id="dash-bottom-butn" onClick={()=>setStep(2)}>
+                        Next Step
+                    </button>
+                </div>
+            }
+            {
+                step === 2 &&
+                <div className="dash-bottom-section">
+                    <button id="dash-bottom-butn" onClick={()=>setStep(1)}>
+                        Back
+                    </button>
+                    <button id="dash-bottom-butn" onClick={()=>setStep(3)}>
+                        Next Step
+                    </button>
+                </div>
+            }
+            {
+                step === 3 &&
+                <div className="dash-bottom-section">
+                    <button id="dash-bottom-butn" onClick={()=>setStep(2)}>
+                        Back
+                    </button>
+                    <button id="dash-bottom-butn" onClick={()=>setStep(4)}>
+                        Next Step
+                    </button>
+                </div>
+            }
             
         </div>
     </>
