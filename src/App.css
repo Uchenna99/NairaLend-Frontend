@@ -795,6 +795,31 @@ button#dash-bottom-butn:hover{
   position: absolute;
 }
 
+.mapped-bank-acc{
+  width: 350px;
+  height: 100px;
+  border: 2px solid;
+  border-radius: 5px;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  gap: 5px;
+  position: relative;
+}
+
+.mapped-bank-acc > p{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+img.bank-logo{
+  height: 80%;
+  position: absolute;
+  right: 15px;
+}
+
 
 
 

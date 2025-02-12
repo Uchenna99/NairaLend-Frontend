@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LoanStep2 from "./LoanStep2";
 import axios from "axios";
 import { AddBankAccount, hostURL } from "./interfaces";
@@ -10,14 +10,13 @@ const BankAccounts = () => {
   const [step, setStep] = useState(1);
   const [buttonLoader, setButtonLoader] = useState(false);
   const [submitData, setSubmitData] = useState<AddBankAccount|null>(null);
-  // const [bankAccounts, setBankAccounts] = useState<DB_BankAccount[]|null>(null);
 
-  useEffect(()=>{
-    const getAccounts = async ()=>{
+  // useEffect(()=>{
+  //   const getAccounts = async ()=>{
 
-    }
-    getAccounts();
-  },[])
+  //   }
+  //   getAccounts();
+  // },[])
 
 
   const handleProps = (data: AddBankAccount)=>{
@@ -32,9 +31,9 @@ const BankAccounts = () => {
         setButtonLoader(true);
         axios.post(`${hostURL}/api/v1/user/new-bank-account`, submitData)
         .then((response)=>{
-          alert(response.data.message);
           setButtonLoader(false);
           setStep(1);
+          alert(response.data.message);
         })
       } catch (error) {
         setButtonLoader(false);

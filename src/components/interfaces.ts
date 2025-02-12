@@ -14,6 +14,7 @@ export interface AddBankAccount {
 
 export interface DB_BankAccount {
   id: string;
+  userId: string;
   bankName: string;
   accountNumber: string;
   accountType: string;
