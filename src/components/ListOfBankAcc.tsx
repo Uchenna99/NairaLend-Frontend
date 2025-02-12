@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import { DB_BankAccount, hostURL, JWT } from "./interfaces";
 import axios from "axios";
 import fbn from "../assets/Images/first-bank-nigeria.512x512.png"
+import { ClipLoader,  } from "react-spinners";
 
 
 const ListOfBankAcc = () => {
     const [bankAccounts, setBankAccounts] = useState<DB_BankAccount[]|null>(null);
     const [selected, setSelected] = useState('');
+    const [loading, setLoading] = useState(true);
 
 
     useEffect(()=>{
@@ -21,9 +23,12 @@ const ListOfBankAcc = () => {
                     await axios.get(`${hostURL}/api/v1/user/get-bank-accounts/${getUser.id}`)
                     .then((response)=>{
                         setBankAccounts(response.data as DB_BankAccount[]);
+                        setLoading(false);
                     })
                     
                 } catch (error) {
+                    setLoading(false);
+                    alert(error);
                     console.log(error);
                 }
             }
@@ -32,21 +37,31 @@ const ListOfBankAcc = () => {
     },[]);
   return (
     <>
-        <div className="bank-acc-box">
-            {
-                bankAccounts &&
-                bankAccounts.map((account)=>(
-                    <div className={`mapped-bank-acc ${selected===account.id? 'selected-div':'unselected-div'}`}
-                        key={account.id}
-                        onClick={()=>{setSelected(account.id)}}>
-                        <p>{account.bankName}</p>
-                        <p>{account.accountNumber}</p>
-                        <img className="bank-logo" src={fbn} alt="" />
-                    </div>
-                ))
-            }
+        {
+            loading? 
+            <div className="pageLoader">
+                <ClipLoader 
+                color="#1E3A8A"
+                size={50}
+                /> 
+            </div>
+            :
+            <div className="bank-acc-box">
+                {
+                    bankAccounts &&
+                    bankAccounts.map((account)=>(
+                        <div className={`mapped-bank-acc ${selected===account.id? 'selected-div':'unselected-div'}`}
+                            key={account.id}
+                            onClick={()=>{setSelected(account.id)}}>
+                            <p>{account.bankName}</p>
+                            <p>{account.accountNumber}</p>
+                            <img className="bank-logo" src={fbn} alt="" />
+                        </div>
+                    ))
+                }
 
-        </div>
+            </div>
+        }
     </>
   )
 }

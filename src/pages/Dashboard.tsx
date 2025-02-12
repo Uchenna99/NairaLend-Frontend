@@ -31,9 +31,13 @@ const Dashboard = () => {
       checkUser();
     },[])
 
+    const handleNavbar = (pageName: string)=>{
+      setPage(pageName);
+    }
+
   return (
     <>
-        <DashboardNavbar />
+        <DashboardNavbar pageName={handleNavbar} />
         {
           pageloading?
           <div className="pageLoader">
@@ -70,8 +74,8 @@ const Dashboard = () => {
                   <p>Payment Cards</p>
                 </div>
 
-                <div className="dash-option" style={{backgroundColor: page==='card'? '#0056B3':''}}
-                  onClick={()=>setPage('card')}>
+                <div className="dash-option" style={{backgroundColor: page==='settings'? '#0056B3':''}}
+                  onClick={()=>setPage('settings')}>
                   <RiSettings3Line id="option-icon" />
                   <p>Settings</p>
                 </div>
