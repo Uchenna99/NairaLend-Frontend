@@ -35,3 +35,13 @@ export interface Bank {
   name: string;
   image: string;
 }
+
+
+export interface DB_PaymentCard {
+  id: string;
+  cardName: string;
+  cardNumber: string;
+  issuingBank: string;
+  expiry: string;
+  userId: string;
+}
