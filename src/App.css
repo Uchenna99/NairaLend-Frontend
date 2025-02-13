@@ -879,7 +879,49 @@ img.bank-logo{
   width: 100%;
   height: 100%;
   /* background-color: #00bc00; */
+  color: #1E3A8A;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  gap: 10px;
 }
+
+.payment-cards-wrapper > h4{
+  font-size: 18px;
+}
+
+.payment-cards-holder{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.payment-card{
+  width: 350px;
+  height: 180px;
+  border: 2px solid;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.payment-card > p{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.payment-card:hover{
+  box-shadow: 0 0 10px #1e3b8a44;
+}
+
+span#plus{
+  font-size: 25px;
+}
+
 
 
 
@@ -1039,6 +1081,9 @@ img.bank-logo{
     width: 205px;
     justify-content: space-between;
   }
+  .payment-cards-wrapper{
+    padding: 90px 20px 20px;
+  }
 }
 
 
@@ -1098,5 +1143,8 @@ img.bank-logo{
   .acc-type-wrapper{
     flex-direction: column;
     align-items: start;
+  }
+  .payment-card{
+    width: 100%;
   }
 }
