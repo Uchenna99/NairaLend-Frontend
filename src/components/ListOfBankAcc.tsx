@@ -2,7 +2,6 @@ import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { DB_BankAccount, hostURL, JWT } from "./interfaces";
 import axios from "axios";
-import fbn from "../assets/Images/first-bank-nigeria.512x512.png"
 import { ClipLoader,  } from "react-spinners";
 
 
@@ -55,7 +54,7 @@ const ListOfBankAcc = () => {
                             onClick={()=>{setSelected(account.id)}}>
                             <p>{account.bankName}</p>
                             <p>{account.accountNumber}</p>
-                            <img className="bank-logo" src={fbn} alt="" />
+                            <img className="bank-logo" src={account.image} alt="" />
                         </div>
                     ))
                 }
