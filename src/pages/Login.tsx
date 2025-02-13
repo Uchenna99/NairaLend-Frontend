@@ -97,7 +97,7 @@ const Signup = () => {
 
           <div className="input-wrapper">
             <input className="form-input" type={showPassword? 'text':'password'} placeholder="Password" value={password}
-            onChange={(e)=>setPassword(e.target.value)}/>
+            onChange={(e)=>setPassword(e.target.value)} />
             {
               showPassword?
               <LuEyeClosed id="pass-eye" onClick={()=>setShowPassword(false)} /> :

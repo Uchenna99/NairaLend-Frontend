@@ -25,7 +25,6 @@ const ListOfBankAcc = () => {
                         setBankAccounts(response.data as DB_BankAccount[]);
                         setLoading(false);
                     })
-                    
                 } catch (error) {
                     setLoading(false);
                     alert(error);
@@ -35,6 +34,7 @@ const ListOfBankAcc = () => {
         }
         getAccounts();
     },[]);
+
   return (
     <>
         {

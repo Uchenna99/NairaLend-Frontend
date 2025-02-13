@@ -50,9 +50,10 @@ const DashboardNavbar = ({pageName}: Props) => {
                 <div className="tab-navbar-slide-cover">
                     <div className="tab-navbar-slide">
 
-                        <div className="dash-section-options"
-                            onClick={()=>{setPage('loan'); setBurger(false);}}>
-                            <div className="dash-option" >
+                        <div className="dash-section-options">
+
+                            <div className="dash-option" 
+                                onClick={()=>{setPage('loan'); setBurger(false);}}>
                                 <GiCash id="option-icon" />
                                 <p>Take a loan</p>
                             </div>

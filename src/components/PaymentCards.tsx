@@ -2,7 +2,7 @@
 const PaymentCards = () => {
   return (
     <>
-        Cards
+        <div className="payment-cards-wrapper"></div>
     </>
   )
 }

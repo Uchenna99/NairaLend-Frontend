@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { AddBankAccount, hostURL } from "./interfaces";
+import { AddBankAccount, Bank, hostURL } from "./interfaces";
 import { CircleLoader } from "react-spinners";
 import BankAccStep1 from "./BankAccStep1";
 import AddNewBankAcc from "./AddNewBankAcc";
@@ -10,14 +10,11 @@ const BankAccounts = () => {
   const [step, setStep] = useState(1);
   const [buttonLoader, setButtonLoader] = useState(false);
   const [submitData, setSubmitData] = useState<AddBankAccount|null>(null);
+  const [banksArray, setBanksArray] = useState<Bank[] | null>(null);
 
-  // useEffect(()=>{
-  //   const getAccounts = async ()=>{
-
-  //   }
-  //   getAccounts();
-  // },[])
-
+  const handleBanksList = (data: Bank[]|null)=>{
+    setBanksArray(data);
+  }
 
   const handleProps = (data: AddBankAccount)=>{
     setSubmitData(data);
@@ -49,12 +46,12 @@ const BankAccounts = () => {
       <div className="bank-acc-wrapper">
         {
           step === 1 && 
-          <BankAccStep1 setStep={()=>setStep(2)} />
+          <BankAccStep1 setStep={()=>setStep(2)} setBanksList={handleBanksList} />
         }
 
         {
           step === 2 &&
-          <AddNewBankAcc sendData={handleProps} />
+          <AddNewBankAcc sendData={handleProps} banksList={banksArray} />
         }
 
         {

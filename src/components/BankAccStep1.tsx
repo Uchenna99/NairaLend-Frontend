@@ -1,17 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { DB_BankAccount, hostURL, JWT } from "./interfaces";
+import { Bank, DB_BankAccount, hostURL, JWT } from "./interfaces";
 import { jwtDecode } from "jwt-decode";
 import fbn from "../assets/Images/first-bank-nigeria.512x512.png"
 import { ClipLoader } from "react-spinners";
 
 interface Props {
     setStep: ()=>void;
+    setBanksList: (data: Bank[]|null)=>void;
 }
 
-const BankAccStep1 = ({setStep}: Props) => {
+const BankAccStep1 = ({setStep, setBanksList}: Props) => {
     const [bankAccounts, setBankAccounts] = useState<DB_BankAccount[]|null>(null);
     const [loading, setLoading] = useState(true);
+    const [banksArray, setBanksArray] = useState<Bank[] | null>(null);
 
 
     useEffect(()=>{
@@ -27,8 +29,12 @@ const BankAccStep1 = ({setStep}: Props) => {
                         setBankAccounts(response.data as DB_BankAccount[]);
                         setLoading(false);
                     })
-                    
+                    .then(async()=>{
+                        const response = await axios.get(`${hostURL}/api/v1/user/get-banks-list`)
+                        setBanksArray(response.data as Bank[]);
+                    })
                 } catch (error) {
+                    alert(error);
                     setLoading(false);
                     console.log(error);
                 }
@@ -36,6 +42,10 @@ const BankAccStep1 = ({setStep}: Props) => {
         }
         getAccounts();
     },[]);
+
+    useEffect(()=>{
+        setBanksList(banksArray);
+    },[banksArray]);
 
   return (
     <>

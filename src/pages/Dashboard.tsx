@@ -33,6 +33,7 @@ const Dashboard = () => {
 
     const handleNavbar = (pageName: string)=>{
       setPage(pageName);
+      console.log(pageName);
     }
 
   return (

@@ -27,3 +27,10 @@ export interface JWT {
   name: string;
   role: 'USER'|'ADMIN';
 }
+
+
+export interface Bank {
+  id: number;
+  name: string;
+  image: string;
+}
