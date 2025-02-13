@@ -18,6 +18,7 @@ export interface DB_BankAccount {
   bankName: string;
   accountNumber: string;
   accountType: string;
+  image: string;
 }
 
 

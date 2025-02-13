@@ -1,22 +1,24 @@
 import { useEffect, useState } from "react";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { HiOutlineChevronUp } from "react-icons/hi";
-import { AddBankAccount, Bank, JWT } from "./interfaces";
+import { AddBankAccount, Bank, hostURL, JWT } from "./interfaces";
 import { jwtDecode } from "jwt-decode";
 import { ClipLoader } from "react-spinners";
+import axios from "axios";
 
 interface Props {
     sendData: (data: AddBankAccount)=>void;
-    banksList: Bank[]|null;
 }
 
-const AddNewBankAcc = ({sendData, banksList}: Props) => {
+const AddNewBankAcc = ({sendData}: Props) => {
     const [drop, setDrop] = useState(false);
     const [bank, setBank] = useState('Choose a bank');
     const [type, setType] = useState('Current');
     const [acc, setAcc] = useState('');
     const [userId, setUserId] = useState('');
-    // const [banksArray, setBanksArray] = useState<Bank[] | null>(null);
+    const [bankLogo, setBankLogo] = useState('');
+
+    const [banksArray, setBanksArray] = useState<Bank[] | null>(null);
 
     useEffect(()=>{
         const checkUser = async()=>{
@@ -26,11 +28,11 @@ const AddNewBankAcc = ({sendData, banksList}: Props) => {
           }else{
             const userInfo: JWT = jwtDecode(user);
             setUserId(userInfo.id);
-            // await axios.get(`${hostURL}/api/v1/user/get-banks-list`)
-            // .then((response)=>{
-            //     const banksList = response.data as Bank[];
-            //     setBanksArray(banksList);
-            // })
+            await axios.get(`${hostURL}/api/v1/user/get-banks-list`)
+            .then((response)=>{
+                const banksList = response.data as Bank[];
+                setBanksArray(banksList);
+            })
           }
         }
         checkUser();
@@ -44,7 +46,8 @@ const AddNewBankAcc = ({sendData, banksList}: Props) => {
         bankName: bank,
         accountNumber: acc,
         accountType: type,
-        userId: userId
+        userId: userId,
+        image: bankLogo
     }
 
 
@@ -65,10 +68,11 @@ const AddNewBankAcc = ({sendData, banksList}: Props) => {
                     }
                     <div className="bank-select-dropdown" style={{display: drop? 'flex':'none'}}>
                         {
-                            banksList?
-                            banksList.map((bank)=>(
+                            banksArray?
+                            banksArray.map((bank)=>(
                                 <div className="bank-option" key={bank.id} onClick={()=>{
                                     setBank(bank.name); 
+                                    setBankLogo(bank.image);
                                     }}>
                                     <p>{bank.name}</p>
                                 </div>
