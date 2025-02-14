@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
-import { DB_PaymentCard, hostURL, JWT } from "./interfaces";
+import { DB_PaymentCard, hostURL, JWT } from "../interfaces";
 import { jwtDecode } from "jwt-decode";
 import { ClipLoader } from "react-spinners";
+import PaymentCardsStep1 from "./PaymentCardsStep1";
 
 
 const PaymentCards = () => {
   const [loading, setLoading] = useState(true);
+  const [step, setStep] = useState(1);
   const [cardArray, setCardArray] = useState<DB_PaymentCard[]|null>(null);
   
 
@@ -44,20 +46,10 @@ const PaymentCards = () => {
             </div>
             :
             <div className="payment-cards-wrapper">
-              <h4>Your registered cards</h4>
-
-              <div className="payment-cards-holder">
-
-                {
-                  cardArray &&
-                  cardArray.map((card)=>(
-                    <div className="payment-card" key={card.id}><p>{card.cardName}</p></div>
-                  ))
-                }
-
-                <div className="payment-card"><p><span id="plus">+</span> Add New Card</p></div>
-              </div>
-
+              {
+                step === 1 &&
+                <PaymentCardsStep1 cardArray={cardArray} />
+              }
             </div>
           }
     </>

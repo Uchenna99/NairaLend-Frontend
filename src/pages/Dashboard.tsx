@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import TakeLoan from "../components/TakeLoan";
 import BankAccounts from "../components/BankAccounts";
-import PaymentCards from "../components/PaymentCards";
+import PaymentCards from "../components/PaymentCards/PaymentCards";
 import { ClipLoader } from "react-spinners";
 import { logOut } from "../components/Logout";
 import DashboardNavbar from "../components/DashboardNavbar";
@@ -50,13 +50,15 @@ const Dashboard = () => {
           :
           <div className="dashboard-wrapper">
             <div className="dash-options-panel">
-              <div className="dash-logo-area">
-                <p style={{fontFamily:'head'}} onClick={()=>navigate('/')}>
-                  NairaLender
-                </p>
-              </div>
 
               <div className="dash-section-options">
+
+                <div className="dash-logo-area">
+                  <p style={{fontFamily:'head'}} onClick={()=>navigate('/')}>
+                    NairaLender
+                  </p>
+                </div>
+
                 <div className="dash-option" style={{backgroundColor: page==='loan'? '#0056B3':''}}
                   onClick={()=>setPage('loan')}>
                   <GiCash id="option-icon" />

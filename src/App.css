@@ -451,7 +451,9 @@ img#hero-lady{
 .dash-options-panel{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background-color: #1E3A8A;
+  padding-bottom: 30px;
 }
 
 .dash-logo-area{
