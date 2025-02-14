@@ -56,7 +56,7 @@ const BankAccStep1 = ({setStep}: Props) => {
                     <div className="mapped-bank-acc" key={account.id}>
                         <p>{account.bankName}</p>
                         <p>{account.accountNumber}</p>
-                        <img className="bank-logo" src={account.image} alt="" />
+                        <div className="bank-logo" style={{backgroundImage:`url(${account.image})`}}></div>
                     </div>
                 ))
             }

@@ -1,7 +1,7 @@
 export const hostURL = 'https://nairalender.up.railway.app';
 
 export interface LoginResponse {
-    accessToken: string;
+  accessToken: string;
 }
 
 
@@ -9,6 +9,15 @@ export interface AddBankAccount {
   bankName: string;
   accountNumber: string;
   accountType: string;
+  userId: string;
+}
+
+
+export interface AddPaymentCard {
+  cardName: string;
+  cardNumber: string;
+  issuingBank: string;
+  expiry: string;
   userId: string;
 }
 

@@ -40,7 +40,7 @@ const TakeLoan = () => {
             
             {
                 step === 1 &&
-                <div className="dash-bottom-section">
+                <div className="dash-bottom-section" style={{position:'absolute'}}>
                     <button id="dash-bottom-butn" onClick={()=>setStep(2)}>
                         Next Step
                     </button>
