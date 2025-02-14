@@ -732,7 +732,7 @@ button#dash-bottom-butn:hover{
 }
 
 .loan-input-wrapper > input::placeholder{
-  color: lightgray;
+  color: #1e3b8a61;
 }
 
 
@@ -885,11 +885,30 @@ img.bank-logo{
   display: flex;
   flex-direction: column;
   padding: 40px;
-  gap: 10px;
 }
 
 .payment-cards-wrapper > h4{
   font-size: 18px;
+}
+
+.payment-cards-step1{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* background-color: aquamarine; */
+  padding-bottom: 10px;
+}
+
+.payment-cards-step2{
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 10px;
+  /* background-color: aquamarine; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .payment-cards-holder{
@@ -922,6 +941,14 @@ img.bank-logo{
 
 span#plus{
   font-size: 25px;
+}
+
+.expiry-cvv-wrap{
+  width: 400px;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: aqua; */
 }
 
 

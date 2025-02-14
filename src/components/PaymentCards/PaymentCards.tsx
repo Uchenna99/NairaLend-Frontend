@@ -4,6 +4,7 @@ import { DB_PaymentCard, hostURL, JWT } from "../interfaces";
 import { jwtDecode } from "jwt-decode";
 import { ClipLoader } from "react-spinners";
 import PaymentCardsStep1 from "./PaymentCardsStep1";
+import PaymentCardsStep2 from "./PaymentCardsStep2";
 
 
 const PaymentCards = () => {
@@ -36,22 +37,26 @@ const PaymentCards = () => {
 
   return (
     <>
+      {
+        loading?
+        <div className="full-pageLoader">
+          <ClipLoader
+          color="#1E3A8A"
+          size={70}
+          />
+        </div>
+        :
+        <div className="payment-cards-wrapper">
           {
-            loading?
-            <div className="full-pageLoader">
-              <ClipLoader
-              color="#1E3A8A"
-              size={70}
-              />
-            </div>
-            :
-            <div className="payment-cards-wrapper">
-              {
-                step === 1 &&
-                <PaymentCardsStep1 cardArray={cardArray} />
-              }
-            </div>
+            step === 1 &&
+            <PaymentCardsStep1 cardArray={cardArray} step={()=>setStep(2)} />
           }
+          {
+            step === 2 &&
+            <PaymentCardsStep2 />
+          }
+        </div>
+      }
     </>
   )
 }
