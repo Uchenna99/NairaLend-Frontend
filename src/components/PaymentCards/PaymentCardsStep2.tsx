@@ -13,7 +13,6 @@ interface Props {
 
 
 const PaymentCardsStep2 = ({userId, submit}: Props) => {
-    const [bankName, setBankName] = useState('');
     const [bankList, setBankList] = useState<Bank[]|null>(null);
     const [cardNumber, setCardNumber] = useState('');
     const [cardName, setCardName] = useState('');
@@ -50,7 +49,7 @@ const PaymentCardsStep2 = ({userId, submit}: Props) => {
         <div className="payment-cards-step2">
 
             <div className="loan-input-wrapper">
-                <h4>Select a bank</h4>
+                <p>Select a bank</p>
                 <div className="bank-select-div" onClick={()=>setDrop(!drop)}>
                     <p>{bank}</p>
                     {
@@ -83,7 +82,7 @@ const PaymentCardsStep2 = ({userId, submit}: Props) => {
             <div className="loan-input-wrapper">
                 <label htmlFor="">Card Number</label>
                 <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" value={cardNumber} 
-                    onChange={(e)=>setCardNumber(e.target.value)} 
+                    onChange={(e)=>setCardNumber(e.target.value)} maxLength={16}
                 />
             </div>
 
