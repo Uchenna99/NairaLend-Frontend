@@ -44,6 +44,10 @@ const PaymentCardsStep2 = ({userId, submit}: Props) => {
         getBanks();
     },[])
 
+    useEffect(()=>{
+        expiry.length === 2 ? setExpiry(expiry + '/') : ''
+    },[expiry]);
+
   return (
     <>
         <div className="payment-cards-step2">
@@ -98,7 +102,7 @@ const PaymentCardsStep2 = ({userId, submit}: Props) => {
                     style={{width:'130px'}}>
                     <label htmlFor="">Expiry Date</label>
                     <input type="text" placeholder="MM/YY" value={expiry} 
-                        onChange={(e)=> setExpiry(e.target.value)}
+                        onChange={(e)=> setExpiry(e.target.value)} maxLength={5}
                     />
                 </div>
 

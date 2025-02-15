@@ -47,15 +47,23 @@ const PaymentCards = () => {
 
   const handlereateCard = async ()=>{
     setButtonLoader(true);
-    try {
-      await axios.post(`${hostURL}/api/v1/user/new-card`, submitData)
-      .then((response)=>{
-        console.log(response.data);
-        setStep(1);
-      })
-    } catch (error) {
-      alert(error);
-    }
+    if(submitData?.issuingBank==='Choose a bank' || submitData?.cardName==='' || submitData?.cardNumber==='' || 
+      submitData?.expiry==='') {
+        alert('Please fill in all the fields');
+        setButtonLoader(false);
+      }else{
+        try {
+          await axios.post(`${hostURL}/api/v1/user/new-card`, submitData)
+          .then((response)=>{
+            console.log(response.data);
+            alert('Card added successfully');
+            setStep(1);
+          })
+        } catch (error) {
+          alert(error);
+          setButtonLoader(false);
+        }
+      }
   }
 
   return (

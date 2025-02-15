@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import lady from "../assets/Images/hero_image.png"
 import { BsShieldFillCheck } from "react-icons/bs";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { FaMoneyBillWave } from "react-icons/fa";
@@ -48,14 +47,14 @@ const LandingPage = () => {
                 <Link id="hero-butn" to={''}>
                   Loan Calculator
                 </Link>
-                <Link id="hero-butn" to={'/signup'}>
+                <Link id="hero-butn" to={'/signup'} style={{animationName:'shake'}}>
                   Get a Loan
                 </Link>
               </div>
             </div>
 
             <div className="hero-right">
-              <img id="hero-lady" src={lady} alt="" />
+              <img id="hero-lady" src="https://res.cloudinary.com/df6xz7bqp/image/upload/v1739652267/hero_image_bjelll.png" alt="Happy Lady" />
             </div>
           </div>
         </div>
