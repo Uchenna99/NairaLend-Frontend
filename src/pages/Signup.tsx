@@ -1,5 +1,4 @@
 import "../stylesheets/Signup.css"
-import lady from "../assets/Images/hero_image.png"
 import { LuEyeClosed } from "react-icons/lu";
 import { LuEye } from "react-icons/lu";
 import { useEffect, useState } from "react";
@@ -76,7 +75,7 @@ const Signup = () => {
       :
       <div className="signup-wrapper">
         <div className="signup-image">
-          <img id="signup-lady" src={lady} alt="" />
+          <img id="signup-lady" src="https://res.cloudinary.com/df6xz7bqp/image/upload/v1739652267/hero_image_bjelll.png" alt="Happy Lady" />
         </div>
 
         <div className="signup-form">
