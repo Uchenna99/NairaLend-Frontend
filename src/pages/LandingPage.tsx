@@ -6,12 +6,19 @@ import { FaMoneyBillWave } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import { JWT } from "../components/interfaces";
+import { useInView } from "react-intersection-observer";
 
 
 
 const LandingPage = () => {
   const [user, setUser] = useState(false);
   const [userName, setUserName] = useState('');
+  const {ref: ref1, inView: inView1} = useInView({threshold: 0.6});
+  const {ref: ref2, inView: inView2} = useInView({threshold: 0.6});
+  const {ref: ref3, inView: inView3} = useInView({threshold: 0.6});
+  const {ref: ref4, inView: inView4} = useInView({threshold: 0.6});
+  const {ref: ref5, inView: inView5} = useInView({threshold: 0.6});
+  const {ref: ref6, inView: inView6} = useInView({threshold: 0.6});
 
   useEffect(()=>{
       const checkUser = async()=>{
@@ -75,37 +82,43 @@ const LandingPage = () => {
 
           <div className="features-wrap">
             <div className="feature-card-holder">
-              <div className="feature-card">
+              <div className="feature-card" ref={ref1}
+                style={{animationName: inView1? 'appear':'disappear'}}>
                 <BsShieldFillCheck id="card-icon"/>
                 <h2>Security</h2>
                 <p>Secure and encrypted transactions with no hidden fees.</p>
               </div>
 
-              <div className="feature-card">
+              <div className="feature-card" ref={ref2}
+                style={{animationName: inView2? 'appear':'disappear'}}>
                 <FaPeopleGroup id="card-icon"/>
                 <h2>50k+ Clients</h2>
                 <p>Join a growing community of satisfied customers.</p>
               </div>
 
-              <div className="feature-card">
+              <div className="feature-card" ref={ref3}
+                style={{animationName: inView3? 'appear':'disappear'}}>
                 <FaMoneyBillWave id="card-icon"/>
                 <h2>1B+ Approved</h2>
                 <p>Over 1 billion naira successfully loaned.</p>
               </div>
 
-              <div className="feature-card">
+              <div className="feature-card" ref={ref4}
+                style={{animationName: inView4? 'appear':'disappear'}}>
                 <FaMoneyBillWave id="card-icon"/>
                 <h2>24/7</h2>
                 <p>We are always available to meet your loan needs.</p>
               </div>
 
-              <div className="feature-card">
+              <div className="feature-card" ref={ref5}
+                style={{animationName: inView5? 'appear':'disappear'}}>
                 <FaMoneyBillWave id="card-icon"/>
                 <h2>1B+ Approved</h2>
                 <p>Secure and encrypted transactions with no hidden fees</p>
               </div>
 
-              <div className="feature-card">
+              <div className="feature-card" ref={ref6}
+                style={{animationName: inView6? 'appear':'disappear'}}>
                 <FaMoneyBillWave id="card-icon"/>
                 <h2>1B+ Approved</h2>
                 <p>Secure and encrypted transactions with no hidden fees</p>

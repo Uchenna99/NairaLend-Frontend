@@ -424,6 +424,16 @@ img#hero-lady{
   animation: feat-slide 9s infinite linear;
 }
 
+@keyframes appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes disappear {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 .feature-card{
   height: 250px;
   border-radius: 5px;
@@ -434,6 +444,7 @@ img#hero-lady{
   justify-content: center;
   align-items: center;
   padding: 20px;
+  animation: 400ms 1 forwards linear;
 }
 
 .feature-card > h2{
