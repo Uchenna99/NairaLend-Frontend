@@ -46,11 +46,16 @@ const PaymentCards = () => {
 
 
   const handlereateCard = async ()=>{
-    await axios.post(`${hostURL}/api/v1/user/new-card`, submitData)
-    .then((response)=>{
-      console.log(response.data);
-      setStep(1);
-    })
+    setButtonLoader(true);
+    try {
+      await axios.post(`${hostURL}/api/v1/user/new-card`, submitData)
+      .then((response)=>{
+        console.log(response.data);
+        setStep(1);
+      })
+    } catch (error) {
+      alert(error);
+    }
   }
 
   return (
@@ -76,7 +81,7 @@ const PaymentCards = () => {
 
           {
             step === 2 &&
-            <div className="dash-bottom-section">
+            <div className="dash-bottom-section" style={{position:'relative'}}>
               <button id="dash-bottom-butn" onClick={()=>setStep(1)}>
                   Back
               </button>

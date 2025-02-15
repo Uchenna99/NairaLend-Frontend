@@ -39,7 +39,7 @@ const BankAccounts = () => {
 
   return (
     <>
-      <div className="bank-acc-wrapper">
+      <div className="bank-acc-wrapper">  
         {
           step === 1 && 
           <BankAccStep1 setStep={()=>setStep(2)} />
@@ -52,7 +52,7 @@ const BankAccounts = () => {
 
         {
           step === 2 &&
-          <div className="dash-bottom-section">
+          <div className="dash-bottom-section" style={{position: 'relative'}}>
             <button id="dash-bottom-butn" onClick={()=>setStep(1)}>
                 Back
             </button>
