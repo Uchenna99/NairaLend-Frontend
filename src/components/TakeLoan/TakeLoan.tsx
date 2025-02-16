@@ -1,6 +1,6 @@
 import { useState } from "react";
-import LoanStep1 from "./LoanStep1";
-import ListOfBankAcc from "./ListOfBankAcc";
+import LoanStep1 from "../TakeLoan/LoanStep1";
+import ListOfBankAcc from "../TakeLoan/ListOfBankAcc";
 
 
 const TakeLoan = () => {

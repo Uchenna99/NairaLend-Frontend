@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { AddBankAccount, hostURL } from "./interfaces";
+import { AddBankAccount, hostURL } from "../interfaces";
 import { CircleLoader } from "react-spinners";
 import BankAccStep1 from "./BankAccStep1";
 import AddNewBankAcc from "./AddNewBankAcc";

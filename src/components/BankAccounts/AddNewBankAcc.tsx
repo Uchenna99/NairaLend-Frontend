@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { HiOutlineChevronUp } from "react-icons/hi";
-import { AddBankAccount, Bank, hostURL, JWT } from "./interfaces";
+import { AddBankAccount, Bank, hostURL, JWT } from "../interfaces";
 import { jwtDecode } from "jwt-decode";
 import { ClipLoader } from "react-spinners";
 import axios from "axios";
