@@ -3,12 +3,18 @@ import { useEffect, useState } from "react";
 import { DB_BankAccount, hostURL, JWT } from "../interfaces";
 import axios from "axios";
 import { ClipLoader,  } from "react-spinners";
+import glitch from "../../assets/Images/glitch_bacground.png"
 
 
-const ListOfBankAcc = () => {
+interface Props {
+    netError: ()=>void;
+}
+
+
+const ListOfBankAcc = ({netError}: Props) => {
     const [bankAccounts, setBankAccounts] = useState<DB_BankAccount[]|null>(null);
     const [selected, setSelected] = useState('');
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState('true');
 
 
     useEffect(()=>{
@@ -22,11 +28,10 @@ const ListOfBankAcc = () => {
                     await axios.get(`${hostURL}/api/v1/user/get-bank-accounts/${getUser.id}`)
                     .then((response)=>{
                         setBankAccounts(response.data as DB_BankAccount[]);
-                        setLoading(false);
+                        setLoading('false');
                     })
                 } catch (error) {
-                    setLoading(false);
-                    alert(error);
+                    setLoading('error');
                     console.log(error);
                 }
             }
@@ -34,10 +39,17 @@ const ListOfBankAcc = () => {
         getAccounts();
     },[]);
 
+
+    useEffect(()=>{
+        if(loading === 'error'){
+            netError();
+        }else{null};
+    },[loading]);
+
   return (
     <>
         {
-            loading? 
+            loading === 'true'?
             <div className="pageLoader">
                 <ClipLoader 
                 color="#1E3A8A"
@@ -45,21 +57,29 @@ const ListOfBankAcc = () => {
                 /> 
             </div>
             :
-            <div className="bank-acc-box">
-                {
-                    bankAccounts &&
-                    bankAccounts.map((account)=>(
-                        <div className={`mapped-bank-acc ${selected===account.id? 'selected-div':'unselected-div'}`}
-                            key={account.id}
-                            onClick={()=>{setSelected(account.id)}}>
-                            <p>{account.bankName}</p>
-                            <p>{account.accountNumber}</p>
-                            <div className="bank-logo" style={{backgroundImage: `url(${account.image})`}}></div>
-                        </div>
-                    ))
-                }
-
+            loading === 'error'?
+            <div className="glitch-screen" style={{backgroundImage:`url(${glitch})`}}>
+                <h2>No network connection</h2>
             </div>
+            :
+            loading === 'false'?
+            <div className="bank-acc-box-cover">
+                <div className="bank-acc-box">
+                    {
+                        bankAccounts &&
+                        bankAccounts.map((account)=>(
+                            <div className={`mapped-bank-acc ${selected===account.id? 'selected-div':'unselected-div'}`}
+                                key={account.id}
+                                onClick={()=>{setSelected(account.id)}}>
+                                <p>{account.bankName}</p>
+                                <p>{account.accountNumber}</p>
+                                <div className="bank-logo" style={{backgroundImage: `url(${account.image})`}}></div>
+                            </div>
+                        ))
+                    }
+
+                </div>
+            </div> : null
         }
     </>
   )

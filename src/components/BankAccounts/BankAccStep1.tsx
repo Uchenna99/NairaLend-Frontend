@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { DB_BankAccount, hostURL, JWT } from "./interfaces";
+import { DB_BankAccount, hostURL, JWT } from "../interfaces";
 import { jwtDecode } from "jwt-decode";
 import { ClipLoader } from "react-spinners";
 

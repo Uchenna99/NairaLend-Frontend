@@ -5,6 +5,7 @@ import ListOfBankAcc from "../TakeLoan/ListOfBankAcc";
 
 const TakeLoan = () => {
     const [step, setStep] = useState(1);
+    const [errorPage, setErrorPage] = useState(false);
 
     
   return (
@@ -21,7 +22,7 @@ const TakeLoan = () => {
                     <p>Select bank account</p>
                 </div>
 
-                <div className="form-progress">
+                <div className="form-progress" style={{color: step===3? '#1E3A8A':'', fontWeight: step===3? 'bold':''}}>
                     <div className="progress-number"><p>3</p></div>
                     <p>Select payment card</p>
                 </div>
@@ -34,7 +35,7 @@ const TakeLoan = () => {
 
             { step === 1 && <LoanStep1 /> }
 
-            { step === 2 && <ListOfBankAcc /> }
+            { step === 2 && <ListOfBankAcc netError={()=>setErrorPage(true)} /> }
             
 
             
@@ -47,7 +48,7 @@ const TakeLoan = () => {
                 </div>
             }
             {
-                step === 2 &&
+                step === 2 && !errorPage &&
                 <div className="dash-bottom-section">
                     <button id="dash-bottom-butn" onClick={()=>setStep(1)}>
                         Back
@@ -58,7 +59,7 @@ const TakeLoan = () => {
                 </div>
             }
             {
-                step === 3 &&
+                step === 3 && !errorPage &&
                 <div className="dash-bottom-section">
                     <button id="dash-bottom-butn" onClick={()=>setStep(2)}>
                         Back

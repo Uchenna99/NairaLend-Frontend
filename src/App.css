@@ -817,10 +817,17 @@ button#dash-bottom-butn:hover{
   /* background-color: #00bc00; */
 }
 
+.bank-acc-box-cover{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  padding-top: 50px;
+}
+
 .bank-acc-box{
   width: 100%;
   height: fit-content;
-  padding: 40px;
+  padding: 40px 40px 100px;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -942,6 +949,18 @@ button#dash-bottom-butn:hover{
   align-items: center;
   padding-left: 100px;
   /* background-color: beige; */
+}
+
+.glitch-screen{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1E3A8A;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 
@@ -1180,6 +1199,9 @@ span#plus{
   .bank-acc-wrapper{
     padding-top: 70px;
   }
+  .bank-acc-box-cover{
+    padding-top: 130px;
+  }
   .type-selector{
     width: 85px;
     height: 40px;
@@ -1239,7 +1261,7 @@ span#plus{
     grid-template-columns: 1fr;
   }
   .bank-acc-box{
-    padding: 50px 20px 70px;
+    padding: 20px 20px 70px;
     align-items: center;
   }
   .add-bank-acc{
