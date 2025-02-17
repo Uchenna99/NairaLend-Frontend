@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import { JWT } from "../components/interfaces";
 import { useInView } from "react-intersection-observer";
+import CustomAlert from "../components/Alerts/Alert";
+import { alertTypes } from "../components/Alerts/AlertTypes";
 
 
 
@@ -125,6 +127,12 @@ const LandingPage = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="why-us-section">
+          {alertTypes.map((alert)=>(
+            <CustomAlert alertObj={alert} />
+          ))}
         </div>
       </div>
     </>
