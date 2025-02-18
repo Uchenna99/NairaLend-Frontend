@@ -4,7 +4,7 @@ import { LuEye } from "react-icons/lu";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { CircleLoader, ClipLoader } from "react-spinners";
+import { ClipLoader } from "react-spinners";
 import { hostURL } from "../components/interfaces";
 
 
@@ -115,7 +115,7 @@ const Signup = () => {
             {
               signingUp &&
               <div className="button-loader-div">
-                <CircleLoader 
+                <ClipLoader 
                 color="#1E3A8A"  
                 size={15}
                 />

@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { hostURL, LoginResponse } from "../components/interfaces";
-import { CircleLoader, ClipLoader } from "react-spinners";
+import { ClipLoader } from "react-spinners";
+import { toast } from "sonner";
 
 interface Login {
   email: string;
@@ -43,9 +44,9 @@ const Signup = () => {
 
   const handleLogin = async (data: Login)=>{
     if(email===''||password===''){
-      alert('Please fill in all fields');
+      toast.error('Please fill in all the fields');
     }else if (password.length < 8){
-      alert('Password must be at least 8 characters long');
+      toast.error('Password must be at least 8 characters long');
     }else{
       setLoggingIn(true);
       try {
@@ -53,13 +54,13 @@ const Signup = () => {
         .then((response)=>{
           const saveResponse = response.data as LoginResponse
           localStorage.setItem('nairaLender', saveResponse.accessToken);
+          navigate('/dashboard');
+          toast.success('Logged in successfully');
         })
-        .then(()=>navigate('/dashboard'))
         
       } catch (error) {
         setLoggingIn(false);
-        console.log(error);
-        alert(error);
+        toast.error('Network error');
       }
     }
   }
@@ -109,7 +110,7 @@ const Signup = () => {
             {
               loggingIn &&
               <div className="button-loader-div">
-                <CircleLoader 
+                <ClipLoader 
                 color="#1E3A8A"  
                 size={15}
                 />

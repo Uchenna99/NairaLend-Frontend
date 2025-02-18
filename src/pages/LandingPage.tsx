@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import { JWT } from "../components/interfaces";
 import { useInView } from "react-intersection-observer";
-import CustomAlert from "../components/Alerts/Alert";
-import { alertTypes } from "../components/Alerts/AlertTypes";
+import { toast } from "sonner";
 
 
 
@@ -41,6 +40,7 @@ const LandingPage = () => {
     <>
       <Navbar user={user} userName={userName} />
 
+
       <div className="landing-wrapper">
 
         <div className="hero-section">
@@ -53,7 +53,7 @@ const LandingPage = () => {
                 <p>Flexible payment options, low-interest rates and instant approval - All in one place.</p>
               </div>
               <div className="hero-left-buttons">
-                <Link id="hero-butn" to={''}>
+                <Link id="hero-butn" to={''} onClick={()=>{toast.error('Sorry, calculator is unavailable at the moment')}}>
                   Loan Calculator
                 </Link>
                 <Link id="hero-butn" to={'/signup'} style={{animationName:'shake'}}>
@@ -129,11 +129,7 @@ const LandingPage = () => {
           </div>
         </div>
 
-        <div className="why-us-section">
-          {alertTypes.map((alert)=>(
-            <CustomAlert alertObj={alert} />
-          ))}
-        </div>
+        {/* <CustomAlert alertObj={customAlerts.success} text="Congratulations" /> */}
       </div>
     </>
   )
