@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { DB_BankAccount, hostURL, JWT } from "../interfaces";
 import { jwtDecode } from "jwt-decode";
 import { ClipLoader } from "react-spinners";
+import { toast } from "sonner";
 
 interface Props {
     setStep: ()=>void;
@@ -27,9 +28,12 @@ const BankAccStep1 = ({setStep}: Props) => {
                         setLoading(false);
                     })
                 } catch (error) {
-                    alert(error);
                     setLoading(false);
-                    console.log(error);
+                    if(axios.isAxiosError(error)) {
+                        toast.error(error.response?.data.error || "Network error");
+                    }else{
+                        toast.error('An unexpected error occurred');
+                    }
                 }
             }
         }

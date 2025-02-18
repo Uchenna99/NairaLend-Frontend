@@ -5,6 +5,7 @@ import { jwtDecode } from "jwt-decode";
 import { CircleLoader, ClipLoader } from "react-spinners";
 import PaymentCardsStep1 from "./PaymentCardsStep1";
 import PaymentCardsStep2 from "./PaymentCardsStep2";
+import { toast } from "sonner";
 
 
 const PaymentCards = () => {
@@ -32,8 +33,12 @@ const PaymentCards = () => {
           .then(()=>{setLoading(false);})
         }
       } catch (error) {
-        alert(error);
         setLoading(false);
+        if(axios.isAxiosError(error)) {
+          toast.error(error.response?.data.error || 'Network error: Could not fetch payment cards');
+        }else{
+          toast.error('An unexpected error occurred');
+        }
       }
     }
     getCards();

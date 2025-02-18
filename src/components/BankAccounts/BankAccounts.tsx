@@ -4,6 +4,7 @@ import { AddBankAccount, hostURL } from "../interfaces";
 import { CircleLoader } from "react-spinners";
 import BankAccStep1 from "./BankAccStep1";
 import AddNewBankAcc from "./AddNewBankAcc";
+import { toast } from "sonner";
 
 
 const BankAccounts = () => {
@@ -18,7 +19,7 @@ const BankAccounts = () => {
 
   const handleCreate = async ()=>{
     if(submitData!.accountNumber===''||submitData?.bankName==='Choose a bank'){
-      alert('Fill in all fields');
+      toast.error('Please fill in all fields');
     }else{
       try {
         setButtonLoader(true);
@@ -26,12 +27,15 @@ const BankAccounts = () => {
         .then((response)=>{
           setButtonLoader(false);
           setStep(1);
-          alert(response.data.message);
+          toast.success(response.data.message);
         })
       } catch (error) {
         setButtonLoader(false);
-        console.log(error);
-        alert(error);
+        if(axios.isAxiosError(error)) {
+          toast.error(error.response?.data.error || "Network error");
+        }else{
+          toast.error("An unexpected error occurred");
+        }
       }
     }
   };

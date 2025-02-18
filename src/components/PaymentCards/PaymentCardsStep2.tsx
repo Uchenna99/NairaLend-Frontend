@@ -4,6 +4,7 @@ import axios from "axios";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { HiOutlineChevronUp } from "react-icons/hi";
 import { ClipLoader } from "react-spinners";
+import { toast } from "sonner";
 
 
 interface Props {
@@ -40,6 +41,7 @@ const PaymentCardsStep2 = ({userId, submit}: Props) => {
             .then((response)=>{
                 setBankList(response.data as Bank[])
             })
+            .catch(()=>{toast.error('Network error: Could not fetch banks')})
         }
         getBanks();
     },[])
