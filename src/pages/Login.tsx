@@ -60,7 +60,11 @@ const Signup = () => {
         
       } catch (error) {
         setLoggingIn(false);
-        toast.error('Network error');
+        if(axios.isAxiosError(error)) {
+          toast.error(error.response?.data.error || "Network error");
+        }else{
+          toast.error('An unexpected error occurred');
+        }
       }
     }
   }

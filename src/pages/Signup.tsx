@@ -53,7 +53,7 @@ const Signup = () => {
         await axios.post(`${hostURL}/api/v1/user/signup`, signupData)
         .then((response)=>{
           navigate('/login');
-          toast.success(response.data);
+          toast.success(response.data.message);
         })
       } 
       
