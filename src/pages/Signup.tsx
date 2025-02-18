@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ClipLoader } from "react-spinners";
 import { hostURL } from "../components/interfaces";
+import { toast } from "sonner";
 
 
 const Signup = () => {
@@ -44,21 +45,25 @@ const Signup = () => {
   const handleSignup = async ()=>{
     try {
       if(firstName===''||lastName===''||phone===''||email===''||password==='') {
-        alert('Please fill in all fields');
+        toast.error('Please fill in all fields');
       }else if(password.length < 8) {
-        alert('Password must be at least 8 characters long');
+        toast.error('Password must be at least 8 characters long');
       }else{
         setSigningUp(true);
         await axios.post(`${hostURL}/api/v1/user/signup`, signupData)
         .then((response)=>{
-          alert(response.data.message);
           navigate('/login');
+          toast.success(response.data);
         })
-      }
+      } 
+      
     } catch (error) {
       setSigningUp(false);
-      console.log(error);
-      alert(error)
+      if(axios.isAxiosError(error)) {
+        toast.error(error.response?.data.error || 'Network error');
+      }else{
+        toast.error('An unexpected error occurred');
+      }
     }
   }
 
