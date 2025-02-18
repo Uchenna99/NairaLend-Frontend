@@ -1,9 +1,11 @@
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
-import { DB_BankAccount, hostURL, JWT } from "../interfaces";
+import { DB_BankAccount, JWT } from "../interfaces";
 import axios from "axios";
 import { ClipLoader,  } from "react-spinners";
 import glitch from "../../assets/Images/glitch_bacground.png"
+import userAxios from "../../config/axios.config";
+import { toast } from "sonner";
 
 
 interface Props {
@@ -25,14 +27,18 @@ const ListOfBankAcc = ({netError}: Props) => {
             }else{
                 try {
                     const getUser: JWT = jwtDecode(user);
-                    await axios.get(`${hostURL}/api/v1/user/get-bank-accounts/${getUser.id}`)
+                    await userAxios.get(`/api/v1/user/get-bank-accounts/${getUser.id}`)
                     .then((response)=>{
                         setBankAccounts(response.data as DB_BankAccount[]);
                         setLoading('false');
                     })
                 } catch (error) {
                     setLoading('error');
-                    console.log(error);
+                    if(axios.isAxiosError(error)) {
+                        toast.error(error.response?.data.message || "Network error");
+                    }else{
+                        toast.error("An unexpected error occurred");
+                    }
                 }
             }
         }
