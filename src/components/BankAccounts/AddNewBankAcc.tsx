@@ -8,15 +8,17 @@ import axios from "axios";
 
 interface Props {
     sendData: (data: AddBankAccount)=>void;
+    inputError: (value: boolean)=>void;
 }
 
-const AddNewBankAcc = ({sendData}: Props) => {
+const AddNewBankAcc = ({sendData, inputError}: Props) => {
     const [drop, setDrop] = useState(false);
     const [bank, setBank] = useState('Choose a bank');
     const [type, setType] = useState('Current');
     const [acc, setAcc] = useState('');
     const [userId, setUserId] = useState('');
     const [bankLogo, setBankLogo] = useState('');
+    const [inpError, setInpError] = useState(false);
 
     const [banksArray, setBanksArray] = useState<Bank[] | null>(null);
 
@@ -48,7 +50,24 @@ const AddNewBankAcc = ({sendData}: Props) => {
         accountType: type,
         userId: userId,
         image: bankLogo
-    }
+    };
+
+    useEffect(()=>{
+        const nums = ['0','1','2','3','4','5','6','7','8','9'];
+        let count = 0
+        for(const char of acc) {
+            if(!nums.includes(char)) {
+                count++
+            }
+        };
+        if(count === 0) {
+            setInpError(false);
+            inputError(false);
+        }else{
+            setInpError(true);
+            inputError(true);
+        };
+    },[acc]);
 
 
   return (
@@ -94,9 +113,13 @@ const AddNewBankAcc = ({sendData}: Props) => {
                     
                     <input type="text" value={acc} placeholder="0123456789"
                         maxLength={10}
+                        style={{outlineColor: inpError? 'red':''}}
                         onChange={(e)=>{
                         setAcc(e.target.value);
                     }}/>
+                    <p id="input-error-message" style={{display: inpError? 'flex':'none'}}>
+                        Numbers only
+                    </p>
                 </div>
 
                 <div className="acc-type-wrapper">

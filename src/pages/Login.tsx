@@ -115,7 +115,7 @@ const Signup = () => {
               loggingIn &&
               <div className="button-loader-div">
                 <ClipLoader 
-                color="#1E3A8A"  
+                color="#FFFF"  
                 size={15}
                 />
               </div>

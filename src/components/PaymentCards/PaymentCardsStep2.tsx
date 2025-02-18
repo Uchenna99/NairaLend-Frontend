@@ -41,7 +41,7 @@ const PaymentCardsStep2 = ({userId, submit}: Props) => {
             .then((response)=>{
                 setBankList(response.data as Bank[])
             })
-            .catch(()=>{toast.error('Network error: Could not fetch banks')})
+            .catch(()=>{toast.error("Network error: Couldn't fetch banks")})
         }
         getBanks();
     },[])

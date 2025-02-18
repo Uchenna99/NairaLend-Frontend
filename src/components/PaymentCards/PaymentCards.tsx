@@ -6,6 +6,7 @@ import { CircleLoader, ClipLoader } from "react-spinners";
 import PaymentCardsStep1 from "./PaymentCardsStep1";
 import PaymentCardsStep2 from "./PaymentCardsStep2";
 import { toast } from "sonner";
+import userAxios from "../../config/axios.config";
 
 
 const PaymentCards = () => {
@@ -25,7 +26,7 @@ const PaymentCards = () => {
           console.log('Error: Cannot find user');
         }else{
           const userInfo: JWT = jwtDecode(user);
-          await axios.get(`${hostURL}/api/v1/user/get-cards-list/${userInfo.id}`)
+          await userAxios.get(`/api/v1/user/get-cards-list/${userInfo.id}`)
           .then((response)=>{
             setCardArray(response.data as DB_PaymentCard[]);
             setUserId(userInfo.id);
@@ -35,7 +36,7 @@ const PaymentCards = () => {
       } catch (error) {
         setLoading(false);
         if(axios.isAxiosError(error)) {
-          toast.error(error.response?.data.error || 'Network error: Could not fetch payment cards');
+          toast.error(error.response?.data.message || "Network error: Couldn't fetch payment cards");
         }else{
           toast.error('An unexpected error occurred');
         }
