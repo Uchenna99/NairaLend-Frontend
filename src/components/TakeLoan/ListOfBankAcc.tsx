@@ -83,7 +83,6 @@ const ListOfBankAcc = ({netError}: Props) => {
                             </div>
                         ))
                     }
-
                 </div>
             </div> : null
         }

@@ -830,6 +830,7 @@ button#dash-bottom-butn:hover{
   height: fit-content;
   display: flex;
   padding-top: 50px;
+  overflow-y: auto;
 }
 
 .bank-acc-box{
@@ -838,8 +839,8 @@ button#dash-bottom-butn:hover{
   padding: 40px 40px 100px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
   color: #1E3A8A;
+  overflow-y: auto;
   /* background-color: palegoldenrod; */
 }
 
