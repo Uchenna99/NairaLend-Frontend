@@ -1078,6 +1078,68 @@ span#plus{
 
 
 
+/* FAQ */
+
+.faq-page-wrapper{
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px;
+}
+
+.faq-wrap{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* background-color: aqua; */
+}
+
+.faq-wrap > h3{
+  font-size: 24px;
+  color: #1E3A8A;
+}
+
+.search-input-wrap{
+  width: 100%;
+  height: 45px;
+  display: flex;
+  position: relative;
+}
+
+input#faq-search{
+  width: 400px;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+  outline: 1px solid #0056B3;
+  padding: 0 40px;
+  font-size: 18px;
+  color: #1E3A8A;
+  transition: 200ms;
+}
+
+input#faq-search:focus{
+  outline: 3px solid #1E3A8A;
+}
+
+.faq-div{
+  width: 100%;
+  height: 45px;
+  background-color: ;
+}
+
+
+
+
+
+
+
+
 
 
 

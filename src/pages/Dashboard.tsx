@@ -11,6 +11,7 @@ import PaymentCards from "../components/PaymentCards/PaymentCards";
 import { ClipLoader } from "react-spinners";
 import { logOut } from "../components/Logout";
 import DashboardNavbar from "../components/DashboardNavbar";
+import Faq from "../components/Faq";
 
 
 const Dashboard = () => {
@@ -77,6 +78,12 @@ const Dashboard = () => {
                   <p>Payment Cards</p>
                 </div>
 
+                <div className="dash-option" style={{backgroundColor: page==='faq'? '#0056B3':''}}
+                  onClick={()=>setPage('faq')}>
+                  <IoCardOutline id="option-icon" />
+                  <p>FAQ</p>
+                </div>
+
                 <div className="dash-option" style={{backgroundColor: page==='settings'? '#0056B3':''}}
                   onClick={()=>setPage('settings')}>
                   <RiSettings3Line id="option-icon" />
@@ -105,6 +112,8 @@ const Dashboard = () => {
               { page === 'bank' && <BankAccounts /> }
 
               { page === 'card' && <PaymentCards /> }
+
+              { page === 'faq' && <Faq /> }
               
             </div>
           </div>
