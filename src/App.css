@@ -1095,7 +1095,7 @@ span#plus{
   height: fit-content;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   /* background-color: aqua; */
 }
 
@@ -1129,9 +1129,38 @@ input#faq-search:focus{
 
 .faq-div{
   width: 100%;
-  height: 45px;
-  background-color: ;
+  height: fit-content;
+  background-color: aliceblue;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  transition: 300ms;
 }
+
+.faq-div > p{
+  font-size: 16px;
+  color: #1E3A8A;
+  margin-bottom: 10px;
+}
+
+.faq-div-label{
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.faq-div-label > p{
+  font-size: 18px;
+  color: #1E3A8A;
+}
+
+
+
+
 
 
 
