@@ -4,12 +4,8 @@ import { HiOutlineChevronUp } from "react-icons/hi";
 
 
 const Faq = () => {
-    const [open,setOpen] = useState(0);
+    const [open, setOpen] = useState(0);
 
-    const faqs = [
-        {question:"What is NairaLender?", ans:"NairaLender is a cloud-based platform that enables you to use a loan to make purchases from merchants or withdraw cash without the need for a smartphone, point-of-sale hardware or plastic cards."},
-        {question:"How do I get a Migo loan?", ans:""}
-    ]
   return (
     <>
         <div className="faq-page-wrapper">
@@ -51,19 +47,19 @@ const Faq = () => {
                     <h3>Getting a loan on NairaLender</h3>
                     <div className="faq-div">
                         <div className="faq-div-label" onClick={()=>{
-                            if(open === 1) {
+                            if(open === 2) {
                                 setOpen(0);
-                            }else{setOpen(1)}
+                            }else{setOpen(2)}
                             }}>
                             <p>How do I get a NairaLender loan?</p>
                             {
-                                open===1?
+                                open===2?
                                 <HiOutlineChevronUp color="#1E3A8A"/> :
                                 <HiOutlineChevronDown color="#1E3A8A"/>
                             }
                         </div>
                         {
-                            open === 1?
+                            open === 2?
                             <p>
                                 To get a loan, all you have to do is enter your email and follow the short registration process
                             </p> : null
