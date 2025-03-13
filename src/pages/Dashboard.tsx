@@ -3,6 +3,7 @@ import { MdAccountBalanceWallet } from "react-icons/md";
 import { IoCardOutline } from "react-icons/io5";
 import { AiOutlineLogout } from "react-icons/ai";
 import { RiSettings3Line } from "react-icons/ri";
+import { MdOutlineQuestionAnswer } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import TakeLoan from "../components/TakeLoan/TakeLoan";
@@ -80,7 +81,7 @@ const Dashboard = () => {
 
                 <div className="dash-option" style={{backgroundColor: page==='faq'? '#0056B3':''}}
                   onClick={()=>setPage('faq')}>
-                  <IoCardOutline id="option-icon" />
+                  <MdOutlineQuestionAnswer id="option-icon" />
                   <p>FAQ</p>
                 </div>
 
