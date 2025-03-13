@@ -35,10 +35,13 @@ const Faq = () => {
                         </div>
                         {
                             open === 1?
-                            <p>
-                                NairaLender is a cloud-based platform that enables you to use a loan to make purchases from merchants or 
-                                withdraw cash without the need for a smartphone, point-of-sale hardware or plastic cards.
-                            </p> : null
+                            <div className="faq-answer">
+                                <p>
+                                    NairaLender is a cloud-based platform that enables you to use a loan to make purchases from merchants or 
+                                    withdraw cash without the need for a smartphone, point-of-sale hardware or plastic cards.
+                                </p> 
+                            </div>
+                            : null
                         }
                     </div>
                 </div>
@@ -60,9 +63,12 @@ const Faq = () => {
                         </div>
                         {
                             open === 2?
-                            <p>
-                                To get a loan, all you have to do is enter your email and follow the short registration process
-                            </p> : null
+                            <div className="faq-answer">
+                                <p>
+                                    To get a loan, all you have to do is enter your email and follow the short registration process
+                                </p> 
+                            </div>
+                            : null
                         }
                     </div>
                 </div>
