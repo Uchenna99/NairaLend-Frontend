@@ -65,7 +65,37 @@ const Faq = () => {
                             open === 2?
                             <div className="faq-answer">
                                 <p>
-                                    To get a loan, all you have to do is enter your email and follow the short registration process
+                                    To get a loan, all you have to do is enter your email and follow the short registration process.
+                                </p> 
+                                <p>
+                                    Once you select the loan amount you want, you'll be asked to give us the details of your bank account 
+                                    for the loan to be deposited. Finally, we will register your debit card information to make repayment 
+                                    easier for you.
+                                </p>
+                            </div>
+                            : null
+                        }
+                    </div>
+
+                    <div className="faq-div">
+                        <div className="faq-div-label" onClick={()=>{
+                            if(open === 3) {
+                                setOpen(0);
+                            }else{setOpen(3)}
+                            }}>
+                            <p>How long does it take to get a Migo loan?</p>
+                            {
+                                open===2?
+                                <HiOutlineChevronUp color="#1E3A8A"/> :
+                                <HiOutlineChevronDown color="#1E3A8A"/>
+                            }
+                        </div>
+                        {
+                            open === 3?
+                            <div className="faq-answer">
+                                <p>
+                                    We work hard to ensure that your loan enters your account (or the account of the merchant you are 
+                                    paying) right after you complete your application session.
                                 </p> 
                             </div>
                             : null
