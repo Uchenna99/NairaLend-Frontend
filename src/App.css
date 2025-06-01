@@ -415,19 +415,19 @@ img#hero-lady{
 
 .features-wrap{
   width: 1200px;
-  height: 300px;
+  height: fit-content;
   /* background-color: bisque; */
   margin-top: 15px;
   overflow: hidden;
 }
 
-@keyframes feat-slide {
+/* @keyframes feat-slide {
   0% { transform: translateY(0); }
   48% { transform: translateY(0); }
   50% { transform: translateY(-290px); }
   98% { transform: translateY(-290px); }
   100% { transform: translateY(0); }
-}
+} */
 
 .feature-card-holder{
   width: 100%;
@@ -436,7 +436,7 @@ img#hero-lady{
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   padding: 30px 10px;
-  animation: feat-slide 9s infinite linear;
+  /* animation: feat-slide 9s infinite linear; */
 }
 
 @keyframes appear {
@@ -450,20 +450,22 @@ img#hero-lady{
 }
 
 .feature-card{
-  height: 250px;
+  /* height: 260px; */
+  max-height: 300px;
   border-radius: 5px;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  padding: 20px;
+  padding: 30px 20px;
 }
 
 .feature-card > h2{
   font-size: 20px;
   margin: 25px 0 5px;
+  text-align: center;
 }
 
 .feature-card > p{
@@ -478,6 +480,7 @@ img#hero-lady{
 }
 
 #card-icon{
+  min-height: 70px;
   font-size: 70px;
   color: #1E3A8A;
 }
@@ -1378,7 +1381,7 @@ input#faq-search:focus{
 }
 
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 550px) {
   .navbar-container{
     padding: 0 20px;
   }

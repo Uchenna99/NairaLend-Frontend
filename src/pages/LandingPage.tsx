@@ -3,6 +3,9 @@ import Navbar from "../components/Navbar";
 import { BsShieldFillCheck } from "react-icons/bs";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { FaMoneyBillWave } from "react-icons/fa";
+import { FaHandHoldingUsd } from "react-icons/fa";
+import { MdEventAvailable } from "react-icons/md";
+import { MdPayment } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import { JWT } from "../components/interfaces";
@@ -84,6 +87,14 @@ const LandingPage = () => {
 
           <div className="features-wrap">
             <div className="feature-card-holder">
+
+              <div className="feature-card" ref={ref6}
+                style={{animationName: inView6? 'appear':'disappear'}}>
+                <FaHandHoldingUsd id="card-icon"/>
+                <h2>Instant Loan Approvals</h2>
+                <p>Get approved in minutes. No long queues or paperwork.</p>
+              </div>
+
               <div className="feature-card" ref={ref1}
                 style={{animationName: inView1? 'appear':'disappear'}}>
                 <BsShieldFillCheck id="card-icon"/>
@@ -98,6 +109,13 @@ const LandingPage = () => {
                 <p>Join a growing community of satisfied customers.</p>
               </div>
 
+              <div className="feature-card" ref={ref4}
+                style={{animationName: inView4? 'appear':'disappear'}}>
+                <MdEventAvailable id="card-icon"/>
+                <h2>24/7</h2>
+                <p>We are always available to meet your loan needs.</p>
+              </div>
+
               <div className="feature-card" ref={ref3}
                 style={{animationName: inView3? 'appear':'disappear'}}>
                 <FaMoneyBillWave id="card-icon"/>
@@ -105,26 +123,13 @@ const LandingPage = () => {
                 <p>Over 1 billion naira successfully loaned.</p>
               </div>
 
-              <div className="feature-card" ref={ref4}
-                style={{animationName: inView4? 'appear':'disappear'}}>
-                <FaMoneyBillWave id="card-icon"/>
-                <h2>24/7</h2>
-                <p>We are always available to meet your loan needs.</p>
-              </div>
-
               <div className="feature-card" ref={ref5}
                 style={{animationName: inView5? 'appear':'disappear'}}>
-                <FaMoneyBillWave id="card-icon"/>
-                <h2>1B+ Approved</h2>
-                <p>Secure and encrypted transactions with no hidden fees</p>
+                <MdPayment id="card-icon"/>
+                <h2>Flexible Repayment Plans</h2>
+                <p>Choose repayment options that fit your lifestyle. Your choice, your pace.</p>
               </div>
 
-              <div className="feature-card" ref={ref6}
-                style={{animationName: inView6? 'appear':'disappear'}}>
-                <FaMoneyBillWave id="card-icon"/>
-                <h2>1B+ Approved</h2>
-                <p>Secure and encrypted transactions with no hidden fees</p>
-              </div>
             </div>
           </div>
         </div>
