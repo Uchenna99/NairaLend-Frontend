@@ -63,10 +63,10 @@ const Navbar = ({user, userName}: Prop) => {
           </div>
         </div>
 
-        {
-          burger &&
-          <div className="tab-navbar-slide-cover">
-            <div className="tab-navbar-slide">
+        {/* {
+          burger && */}
+          <div className={`tab-navbar-slide-cover ${burger? 'translate-out' : 'translate-in'}`}>
+            <div className={`tab-navbar-slide `}>
               {
                 user &&
                 <div className="tab-navbar-slide-option">
@@ -114,7 +114,7 @@ const Navbar = ({user, userName}: Prop) => {
 
             </div>
           </div>
-        }
+        {/* } */}
     </>
   )
 }

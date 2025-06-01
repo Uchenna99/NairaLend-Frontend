@@ -44,10 +44,10 @@ const DashboardNavbar = ({pageName}: Props) => {
                 </div>
             </div>
 
-            {
+            {/* {
 
-                burger &&
-                <div className="tab-navbar-slide-cover">
+                burger && */}
+                <div className={`tab-navbar-slide-cover ${burger? 'translate-out' : 'translate-in'}`}>
                     <div className="tab-navbar-slide">
 
                         <div className="dash-section-options">
@@ -89,7 +89,7 @@ const DashboardNavbar = ({pageName}: Props) => {
 
                     </div>
                 </div>
-            }
+            {/* } */}
         </div>
     </>
   )

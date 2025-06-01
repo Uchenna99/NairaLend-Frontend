@@ -191,6 +191,7 @@
   top: 0;
   left: 0;
   z-index: 5;
+  transition: all 200ms linear;
 }
 
 @keyframes slide {
@@ -206,7 +207,7 @@
   flex-direction: column;
   gap: 5px;
   padding: 100px 20px 0;
-  animation: slide 250ms 1 forwards linear;
+  /* animation: slide 250ms 1 forwards linear; */
 }
 
 .tab-navbar-slide-option{
@@ -220,6 +221,14 @@
   color: white;
   font-size: 22px;
   font-weight: 600;
+}
+
+.translate-in{
+  transform: translateX(-100%);
+}
+
+.translate-out{
+  transform: translateX(0);
 }
 
 #nav-option{
