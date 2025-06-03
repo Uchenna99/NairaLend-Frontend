@@ -4,15 +4,11 @@ import { IoCardOutline } from "react-icons/io5";
 import { AiOutlineLogout } from "react-icons/ai";
 import { RiSettings3Line } from "react-icons/ri";
 import { MdOutlineQuestionAnswer } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import TakeLoan from "../components/TakeLoan/TakeLoan";
-import BankAccounts from "../components/BankAccounts/BankAccounts";
-import PaymentCards from "../components/PaymentCards/PaymentCards";
 import { ClipLoader } from "react-spinners";
-import { logOut } from "../components/Logout";
-import DashboardNavbar from "../components/DashboardNavbar";
-import Faq from "../components/Faq";
+import { logOut } from "../../components/Logout";
+import DashboardNavbar from "../../components/DashboardNavbar";
 
 
 const Dashboard = () => {
@@ -62,31 +58,30 @@ const Dashboard = () => {
                 </div>
 
                 <div className="dash-option" style={{backgroundColor: page==='loan'? '#0056B3':''}}
-                  onClick={()=>setPage('loan')}>
+                  onClick={()=> navigate('loan')}>
                   <GiCash id="option-icon" />
                   <p>Take a loan</p>
                 </div>
 
                 <div className="dash-option" style={{backgroundColor: page==='bank'? '#0056B3':''}}
-                  onClick={()=>setPage('bank')}>
+                  onClick={()=> navigate('bank-accounts')}>
                   <MdAccountBalanceWallet id="option-icon" />
                   <p>Bank Accounts</p>
                 </div>
 
                 <div className="dash-option" style={{backgroundColor: page==='card'? '#0056B3':''}}
-                  onClick={()=>setPage('card')}>
+                  onClick={()=> navigate('payment-cards')}>
                   <IoCardOutline id="option-icon" />
                   <p>Payment Cards</p>
                 </div>
 
                 <div className="dash-option" style={{backgroundColor: page==='faq'? '#0056B3':''}}
-                  onClick={()=>setPage('faq')}>
+                  onClick={()=> navigate('faq')}>
                   <MdOutlineQuestionAnswer id="option-icon" />
                   <p>FAQ</p>
                 </div>
 
-                <div className="dash-option" style={{backgroundColor: page==='settings'? '#0056B3':''}}
-                  onClick={()=>setPage('settings')}>
+                <div className="dash-option" style={{backgroundColor: page==='settings'? '#0056B3':''}} >
                   <RiSettings3Line id="option-icon" />
                   <p>Settings</p>
                 </div>
@@ -108,15 +103,10 @@ const Dashboard = () => {
 
             <div className="dash-display-area">
 
-              { page === 'loan' && <TakeLoan /> }
-
-              { page === 'bank' && <BankAccounts /> }
-
-              { page === 'card' && <PaymentCards /> }
-
-              { page === 'faq' && <Faq /> }
+              <Outlet/>
               
             </div>
+
           </div>
         }
     </>
