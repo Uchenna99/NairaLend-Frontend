@@ -40,7 +40,7 @@ const Dashboard = () => {
 
   useEffect(()=>{
       const checkUser = async()=>{
-        const user = await localStorage.getItem('nairaLender');
+        const user = localStorage.getItem('nairaLender');
         if(!user){
           console.log('Error: Cannot find user');
         }else{

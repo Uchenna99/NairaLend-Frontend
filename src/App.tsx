@@ -18,7 +18,9 @@ function App() {
       <div className="nairalender-app">
         <Toaster richColors position='top-right'/>
         <Routes>
+
           <Route path='/' element={<LandingPage/>} />
+          
           <Route path='/signup' element={<Signup/>} />
           <Route path='/login' element={<Login/>} />
 

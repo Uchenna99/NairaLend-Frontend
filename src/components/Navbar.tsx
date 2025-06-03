@@ -25,7 +25,7 @@ const Navbar = ({user, userName}: Prop) => {
             {
               user?
               <div className="main-nav-right">
-                <Link id="nav-login" to={'/dashboard'}>
+                <Link id="nav-login" to={'/dashboard/loan'}>
                   Hi, {userName}
                 </Link>
                 <div className="logout-div" onClick={()=>{
