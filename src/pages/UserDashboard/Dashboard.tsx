@@ -4,7 +4,7 @@ import { IoCardOutline } from "react-icons/io5";
 import { AiOutlineLogout } from "react-icons/ai";
 import { RiSettings3Line } from "react-icons/ri";
 import { MdOutlineQuestionAnswer } from "react-icons/md";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
 import { logOut } from "../../components/Logout";
@@ -12,10 +12,31 @@ import DashboardNavbar from "../../components/DashboardNavbar";
 
 
 const Dashboard = () => {
+  const location = useLocation();
   const navigate = useNavigate();
-  const [page, setPage] = useState('loan');
+  const [page, setPage] = useState('');
   const [pageloading, setPageLoading] = useState(true);
 
+
+  useEffect(()=>{    
+    switch (true) {
+      case location.pathname.includes('dashboard/loan'):
+        setPage('loan');
+        break;
+      case location.pathname.includes('bank-accounts'):
+        setPage('bank');
+        break;
+      case location.pathname.includes('payment-cards'):
+        setPage('card');
+        break;
+      case location.pathname.includes('faq'):
+        setPage('faq');
+        break;
+    
+      default:
+        break;
+    }
+  },[location]);
 
   useEffect(()=>{
       const checkUser = async()=>{
@@ -29,14 +50,10 @@ const Dashboard = () => {
       checkUser();
     },[])
 
-    const handleNavbar = (pageName: string)=>{
-      setPage(pageName);
-      console.log(pageName);
-    }
 
   return (
     <>
-        <DashboardNavbar pageName={handleNavbar} />
+        <DashboardNavbar />
         {
           pageloading?
           <div className="pageLoader">

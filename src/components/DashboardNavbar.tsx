@@ -1,27 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import { RiMenu5Fill } from "react-icons/ri";
 import { IoMdClose } from "react-icons/io";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { logOut } from "./Logout";
 import { GiCash } from "react-icons/gi";
 import { MdAccountBalanceWallet } from "react-icons/md";
 import { IoCardOutline } from "react-icons/io5";
 import { AiOutlineLogout } from "react-icons/ai";
 
-interface Props {
-    pageName: (page: string)=>void;
-}
 
 
-const DashboardNavbar = ({pageName}: Props) => {
+const DashboardNavbar = () => {
   const navigate = useNavigate();
   const [burger, setBurger] = useState(false);
-  const [page, setPage] = useState('loan');
 
-
-  useEffect(()=>{
-    pageName(page);
-  },[page]);
 
 
   return (
@@ -53,25 +45,31 @@ const DashboardNavbar = ({pageName}: Props) => {
                         <div className="dash-section-options">
 
                             <div className="dash-option" 
-                                onClick={()=>{setPage('loan'); setBurger(false);}}>
+                                onClick={()=>{navigate('loan'); setBurger(false);}}>
                                 <GiCash id="option-icon" />
                                 <p>Take a loan</p>
                             </div>
             
                             <div className="dash-option" 
-                                onClick={()=>{setPage('bank'); setBurger(false);}}>
+                                onClick={()=>{navigate('bank-accounts'); setBurger(false);}}>
                                 <MdAccountBalanceWallet id="option-icon" />
                                 <p>Bank Accounts</p>
                             </div>
             
                             <div className="dash-option" 
-                                onClick={()=>{setPage('card'); setBurger(false);}}>
+                                onClick={()=>{navigate('payment-cards'); setBurger(false);}}>
                                 <IoCardOutline id="option-icon" />
                                 <p>Payment Cards</p>
                             </div>
 
                             <div className="dash-option" 
-                                onClick={()=>{setPage('settings'); setBurger(false);}}>
+                                onClick={()=>{navigate('faq'); setBurger(false);}}>
+                                <IoCardOutline id="option-icon" />
+                                <p>FAQ</p>
+                            </div>
+
+                            <div className="dash-option" 
+                                onClick={()=>{ setBurger(false);}}>
                                 <IoCardOutline id="option-icon" />
                                 <p>Settings</p>
                             </div>
